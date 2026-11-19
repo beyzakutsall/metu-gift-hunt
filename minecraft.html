@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ODTÜ Blok Haritası</title>
+  <link rel="stylesheet" href="css/stil.css">
+
+  <!-- Three.js: CDN'den, build aracı olmadan import map ile yüklenir -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Veri işlenirken görünen yükleme ekranı; hata olursa mesaj da burada gösterilir -->
+  <div id="yukleniyor">Kampüs inşa ediliyor…</div>
+
+  <!-- OSM lisansı gereği atıf -->
+  <a id="atif" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap katkıcıları</a>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
