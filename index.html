@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ODTÜ Kampüs Haritası</title>
+
+  <!-- MapLibre GL JS: CDN'den stil ve betik dosyaları -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+  <style>
+    /* Sayfa kenar boşluklarını kaldır, haritayı tam ekran yap */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #map {
+      position: absolute;
+      inset: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Haritanın çizileceği alan -->
+  <div id="map"></div>
+
+  <script>
+    // Kampüs sınırları: [güneybatı, kuzeydoğu] olarak [boylam, enlem]
+    const kampusSinirlari = [
+      [32.760, 39.880],
+      [32.800, 39.903]
+    ];
+
+    // Haritayı oluştur: OpenFreeMap Liberty altlığı, ODTÜ merkezli, zoom 15
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'https://tiles.openfreemap.org/styles/liberty',
+      center: [32.7830, 39.8915],
+      zoom: 15,
+      maxBounds: kampusSinirlari // kampüs dışına kaydırmayı engeller
+    });
+
+    // Sağ üste "konumumu göster" kontrolü ekle
+    map.addControl(
+      new maplibregl.GeolocateControl({
+        positionOptions: { enableHighAccuracy: true },
+        trackUserLocation: true
+      }),
+      'top-right'
+    );
+  </script>
+</body>
+</html>
