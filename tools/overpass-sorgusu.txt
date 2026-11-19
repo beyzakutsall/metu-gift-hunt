@@ -11,4 +11,4 @@
   way["amenity"="parking"];
   way["waterway"];
 );
-out tags geom;
+out body geom;
