@@ -2,11 +2,2891 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.62.11 87bfad18",
   "osm3s": {
-    "timestamp_osm_base": "2026-11-19T23:38:26Z",
+    "timestamp_osm_base": "2026-11-20T13:52:51Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
 
+{
+  "type": "node",
+  "id": 308826436,
+  "lat": 39.8934801,
+  "lon": 32.7840236,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Kafeterya"
+  }
+},
+{
+  "type": "node",
+  "id": 308831065,
+  "lat": 39.8912287,
+  "lon": 32.7863377,
+  "tags": {
+    "barrier": "gate",
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 310043489,
+  "lat": 39.8849336,
+  "lon": 32.7632613,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Domino's",
+    "brand:wikidata": "Q839466",
+    "brand:wikipedia": "en:Domino's Pizza",
+    "cuisine": "pizza",
+    "name": "Domino's",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 501705626,
+  "lat": 39.8898332,
+  "lon": 32.7906931,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "name": "Sunshine"
+  }
+},
+{
+  "type": "node",
+  "id": 501705632,
+  "lat": 39.8894217,
+  "lon": 32.7914685,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Çatı",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 501820006,
+  "lat": 39.8945711,
+  "lon": 32.7823488,
+  "tags": {
+    "amenity": "fast_food",
+    "loc_name": "Fizik Kantini",
+    "name": "Bizim Kantin"
+  }
+},
+{
+  "type": "node",
+  "id": 715454932,
+  "lat": 39.8918156,
+  "lon": 32.7889712,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "kebab",
+    "level": "1",
+    "name": "Maydanoz Döner",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 718505717,
+  "lat": 39.8922210,
+  "lon": 32.7885595,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "fish;sandwich",
+    "delivery": "no",
+    "indoor_seating": "no",
+    "level": "0",
+    "name": "Balıkçı",
+    "outdoor_seating": "yes",
+    "takeaway": "only",
+    "toilets": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1361587670,
+  "lat": 39.8814960,
+  "lon": 32.7999306,
+  "tags": {
+    "artist_name": "Bilinmiyor",
+    "artwork_type": "bust",
+    "material": "brass",
+    "name": "Can Yücel",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 1432430838,
+  "lat": 39.8851757,
+  "lon": 32.7632006,
+  "tags": {
+    "addr:housenumber": "19",
+    "addr:neighbourhood": "Üniversiteler Mahallesi",
+    "addr:postcode": "06800",
+    "addr:street": "Bilkent Bulvarı",
+    "amenity": "restaurant",
+    "contact:website": "https://www.duveroglu.com.tr/",
+    "cuisine": "kebab;turkish",
+    "name": "Düveroğlu"
+  }
+},
+{
+  "type": "node",
+  "id": 2228326731,
+  "lat": 39.8833103,
+  "lon": 32.7613394,
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "brand:wikipedia": "en:Starbucks",
+    "cuisine": "coffee_shop",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2228327843,
+  "lat": 39.8823430,
+  "lon": 32.7630721,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "turkish",
+    "name": "Salus Restaurant"
+  }
+},
+{
+  "type": "node",
+  "id": 2590946334,
+  "lat": 39.8902222,
+  "lon": 32.7897722,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "2. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "2. Yurt Kantini",
+    "name:en": "2nd Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 2676914801,
+  "lat": 39.8976391,
+  "lon": 32.7742079,
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "cuisine": "coffee_shop",
+    "internet_access": "yes",
+    "internet_access:fee": "no",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "outdoor_seating": "yes",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2677063020,
+  "lat": 39.8924341,
+  "lon": 32.7882762,
+  "tags": {
+    "amenity": "fast_food",
+    "level": "0",
+    "name": "Piyata"
+  }
+},
+{
+  "type": "node",
+  "id": 2677063716,
+  "lat": 39.8926956,
+  "lon": 32.7884815,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "kebab",
+    "level": "1",
+    "name": "Meşhur Aspava"
+  }
+},
+{
+  "type": "node",
+  "id": 2677063829,
+  "lat": 39.8924891,
+  "lon": 32.7881532,
+  "tags": {
+    "alt_name": "Susam Simit Cafe",
+    "amenity": "cafe",
+    "level": "1",
+    "name": "Susam"
+  }
+},
+{
+  "type": "node",
+  "id": 2677065730,
+  "lat": 39.8922910,
+  "lon": 32.7878890,
+  "tags": {
+    "amenity": "fast_food",
+    "changing_table": "no",
+    "cuisine": "pizza",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Pizzacı Altan",
+    "outdoor_seating": "yes",
+    "smoking": "outside",
+    "takeaway": "yes",
+    "toilets": "yes",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 2677074831,
+  "lat": 39.8928155,
+  "lon": 32.7850758,
+  "tags": {
+    "artist_name": "Burhan Alkar",
+    "artwork_type": "statue",
+    "loc_name": "CC Heykeli",
+    "name": "Gençlik Anıtı",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 3097200039,
+  "lat": 39.8925386,
+  "lon": 32.7881055,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3097200041,
+  "lat": 39.8923223,
+  "lon": 32.7881769,
+  "tags": {
+    "entrance": "yes",
+    "level": "1"
+  }
+},
+{
+  "type": "node",
+  "id": 3097200144,
+  "lat": 39.8920398,
+  "lon": 32.7886864,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3097200147,
+  "lat": 39.8946307,
+  "lon": 32.7823993,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3097200154,
+  "lat": 39.8920497,
+  "lon": 32.7884935,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3373808476,
+  "lat": 39.8945671,
+  "lon": 32.7825820,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3373808896,
+  "lat": 39.8947411,
+  "lon": 32.7825492,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3373808902,
+  "lat": 39.8948194,
+  "lon": 32.7826629,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3373808942,
+  "lat": 39.8956681,
+  "lon": 32.7824996,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3373871830,
+  "lat": 39.8949240,
+  "lon": 32.7827837,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Max K. E. Ludwig Planck"
+  }
+},
+{
+  "type": "node",
+  "id": 3373871831,
+  "lat": 39.8949509,
+  "lon": 32.7827797,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Weiner Heisenberg"
+  }
+},
+{
+  "type": "node",
+  "id": 3373871832,
+  "lat": 39.8945943,
+  "lon": 32.7825561,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 3373871833,
+  "lat": 39.8947010,
+  "lon": 32.7825287,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 3373871834,
+  "lat": 39.8947042,
+  "lon": 32.7824725,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "covered": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 3373910905,
+  "lat": 39.8949341,
+  "lon": 32.7818307,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3373923858,
+  "lat": 39.8939366,
+  "lon": 32.7819150,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3373923859,
+  "lat": 39.8944845,
+  "lon": 32.7814036,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "bicycle_parking": "floor",
+    "covered": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 3373923860,
+  "lat": 39.8945328,
+  "lon": 32.7823110,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3373923861,
+  "lat": 39.8945438,
+  "lon": 32.7817197,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3373923862,
+  "lat": 39.8945460,
+  "lon": 32.7813895,
+  "tags": {
+    "covered": "yes",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 3373923864,
+  "lat": 39.8945686,
+  "lon": 32.7817405,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3373923869,
+  "lat": 39.8949438,
+  "lon": 32.7814457,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 3374002530,
+  "lat": 39.8937351,
+  "lon": 32.7828823,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3374002562,
+  "lat": 39.8941657,
+  "lon": 32.7825754,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 3374002565,
+  "lat": 39.8942029,
+  "lon": 32.7827278,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3374065835,
+  "lat": 39.8943264,
+  "lon": 32.7823868,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "covered": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 3374065836,
+  "lat": 39.8943585,
+  "lon": 32.7829756,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 3374065841,
+  "lat": 39.8945146,
+  "lon": 32.7829846,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "no",
+    "check_date": "2021-05-31"
+  }
+},
+{
+  "type": "node",
+  "id": 3374065843,
+  "lat": 39.8946235,
+  "lon": 32.7829399,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "no",
+    "check_date": "2021-05-31"
+  }
+},
+{
+  "type": "node",
+  "id": 3374065844,
+  "lat": 39.8953625,
+  "lon": 32.7827724,
+  "tags": {
+    "artwork_type": "statue",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081518,
+  "lat": 39.8940763,
+  "lon": 32.7826379,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Charles Darwin"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081519,
+  "lat": 39.8939131,
+  "lon": 32.7829714,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Enrico Fermi"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081520,
+  "lat": 39.8940446,
+  "lon": 32.7826689,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Ernest Rutherford"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081521,
+  "lat": 39.8939773,
+  "lon": 32.7829621,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "J. Robert Oppenheimer"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081522,
+  "lat": 39.8939432,
+  "lon": 32.7829436,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Marie Curie",
+    "subject:wikidata": "Q7186"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081523,
+  "lat": 39.8937784,
+  "lon": 32.7829859,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Robert Boyle",
+    "wikimedia_commons": "File:Robert Boyle bust in METU Campus Ankara Turkey.jpg"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081524,
+  "lat": 39.8940137,
+  "lon": 32.7826472,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Wolfgang Pauli"
+  }
+},
+{
+  "type": "node",
+  "id": 3374081525,
+  "lat": 39.8944574,
+  "lon": 32.7829394,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust"
+  }
+},
+{
+  "type": "node",
+  "id": 3395911770,
+  "lat": 39.8880168,
+  "lon": 32.7895006,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 3836346072,
+  "lat": 39.8901216,
+  "lon": 32.7902105,
+  "tags": {
+    "artwork_type": "statue",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 3836440363,
+  "lat": 39.8961655,
+  "lon": 32.7817508,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Beşeri Kantini",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 3836440364,
+  "lat": 39.8956551,
+  "lon": 32.7823758,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Matematik Kantini",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3836478308,
+  "lat": 39.8900241,
+  "lon": 32.7904570,
+  "tags": {
+    "bus": "yes",
+    "entrance": "main",
+    "highway": "bus_stop",
+    "name": "Otostop noktası",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 4099972191,
+  "lat": 39.8975642,
+  "lon": 32.7738707,
+  "tags": {
+    "amenity": "restaurant",
+    "capacity": "100",
+    "name": "Zeytin"
+  }
+},
+{
+  "type": "node",
+  "id": 4257719403,
+  "lat": 39.9001605,
+  "lon": 32.7738507,
+  "tags": {
+    "addr:city": "Ankara",
+    "addr:housenumber": "13",
+    "addr:postcode": "06531",
+    "addr:street": "Odtu Teknokent Silikon Blok",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "internet_access": "wlan",
+    "name": "CafeMount",
+    "operator": "stockmount",
+    "smoking": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4327395490,
+  "lat": 39.8932850,
+  "lon": 32.7825948,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "name": "Kimya Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 4582210712,
+  "lat": 39.8894658,
+  "lon": 32.7915172,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4582234377,
+  "lat": 39.8903904,
+  "lon": 32.7880439,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 4622453639,
+  "lat": 39.8918017,
+  "lon": 32.7835588,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "cuisine": "coffee_shop;sandwich",
+    "level": "-1",
+    "name": "Bilgisayar Mühendisliği Kantini",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4622453640,
+  "lat": 39.8923202,
+  "lon": 32.7832652,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "name": "Mühendislik Merkez Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 4622453649,
+  "lat": 39.8901588,
+  "lon": 32.7893396,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 4622453651,
+  "lat": 39.8900429,
+  "lon": 32.7894896,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "bicycle_parking": "stands",
+    "covered": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591829,
+  "lat": 39.8970561,
+  "lon": 32.7819140,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591842,
+  "lat": 39.8943903,
+  "lon": 32.7840782,
+  "tags": {
+    "historic": "monument",
+    "name": "2 Aralık Anıtı"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591843,
+  "lat": 39.8928228,
+  "lon": 32.7837376,
+  "tags": {
+    "historic": "monument",
+    "name": "Hayalet Bisiklet Anıtı"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591844,
+  "lat": 39.8925259,
+  "lon": 32.7831669,
+  "tags": {
+    "artist_name": "Zafer Bozkurt",
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591846,
+  "lat": 39.8927462,
+  "lon": 32.7828626,
+  "tags": {
+    "artwork_type": "sculpture",
+    "start_date": "2015",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591847,
+  "lat": 39.8937123,
+  "lon": 32.7852218,
+  "tags": {
+    "artwork_type": "sculpture",
+    "name": "Bilim Işığında Kanatlanan Hezarfen Ahmet Efendi Heykeli",
+    "start_date": "2016",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591848,
+  "lat": 39.8923962,
+  "lon": 32.7823672,
+  "tags": {
+    "historic": "memorial",
+    "name": "Mustafa Parlar Anıtı",
+    "start_date": "1982"
+  }
+},
+{
+  "type": "node",
+  "id": 4622591849,
+  "lat": 39.8974109,
+  "lon": 32.7826530,
+  "tags": {
+    "artwork_type": "relief",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731256,
+  "lat": 39.8895581,
+  "lon": 32.7889687,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "4. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "4. Yurt Kantini",
+    "name:en": "4th Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731257,
+  "lat": 39.8898090,
+  "lon": 32.7882795,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "3. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "3. Yurt Kantini",
+    "name:en": "3rd Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731258,
+  "lat": 39.8891124,
+  "lon": 32.7899164,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "5. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "5. Yurt Kantini",
+    "name:en": "5th Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731259,
+  "lat": 39.8890547,
+  "lon": 32.7890836,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "7. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "7. Yurt Kantini",
+    "name:en": "7th Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731260,
+  "lat": 39.8888785,
+  "lon": 32.7882684,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "8. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "8. Yurt Kantini",
+    "name:en": "8th Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731261,
+  "lat": 39.8905190,
+  "lon": 32.7883875,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "1. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "cuisine": "chicken;pasta;pizza",
+    "indoor_seating": "yes",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "level": "1",
+    "name": "1. Yurt Kantini",
+    "name:en": "1st Dorm Canteen",
+    "opening_hours": "Sep-Jul 09:00-24:00",
+    "outdoor_seating": "no",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731262,
+  "lat": 39.8879191,
+  "lon": 32.7904532,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "9. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "9. Yurt Kantini",
+    "name:en": "9th Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731263,
+  "lat": 39.8884022,
+  "lon": 32.7899915,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "6. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "6. Yurt Kantini",
+    "name:en": "6th Dorm Canteen"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731264,
+  "lat": 39.8885368,
+  "lon": 32.7887219,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "Geliştirme Vakfı Konukevi",
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "brand": "Komagene",
+    "brand:wikidata": "Q108919263",
+    "cuisine": "kebab",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Komagene",
+    "name:en": "EBİ-2 Canteen",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731267,
+  "lat": 39.8897868,
+  "lon": 32.7906368,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "name": "Kocatepe Kahve Evi",
+    "outdoor_seating": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731268,
+  "lat": 39.8926327,
+  "lon": 32.7884385,
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "internet_access": "wlan",
+    "level": "-1",
+    "name": "Coffee 101",
+    "outdoor_seating": "no",
+    "smoking": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731273,
+  "lat": 39.8925595,
+  "lon": 32.7885866,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731313,
+  "lat": 39.8916019,
+  "lon": 32.7869073,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731314,
+  "lat": 39.8915544,
+  "lon": 32.7868332,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731315,
+  "lat": 39.8915338,
+  "lon": 32.7867501,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731316,
+  "lat": 39.8914814,
+  "lon": 32.7866426,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731317,
+  "lat": 39.8914245,
+  "lon": 32.7866312,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731318,
+  "lat": 39.8914764,
+  "lon": 32.7868698,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731319,
+  "lat": 39.8914514,
+  "lon": 32.7868128,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731320,
+  "lat": 39.8912914,
+  "lon": 32.7867778,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731321,
+  "lat": 39.8914170,
+  "lon": 32.7867762,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 4622731364,
+  "lat": 39.8938377,
+  "lon": 32.7836455,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4622917821,
+  "lat": 39.8981806,
+  "lon": 32.7828811,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "İİBF Kantini (Gizem Cafe)"
+  }
+},
+{
+  "type": "node",
+  "id": 4622917822,
+  "lat": 39.8976188,
+  "lon": 32.7817599,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Mimarlık Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 4622917823,
+  "lat": 39.8958101,
+  "lon": 32.7800138,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Biyoloji Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 4622983577,
+  "lat": 39.8922406,
+  "lon": 32.7878716,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "restaurant",
+    "cuisine": "turkish;dessert;ice_cream",
+    "level": "-1",
+    "name": "Zeynel Çilli",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4623014831,
+  "lat": 39.8903691,
+  "lon": 32.7834120,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "name": "İnşaat Mühendisliği Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 4623055080,
+  "lat": 39.8928435,
+  "lon": 32.7838837,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 4623055082,
+  "lat": 39.8926245,
+  "lon": 32.7881490,
+  "tags": {
+    "amenity": "cafe",
+    "level": "1",
+    "name": "Teras Cafe"
+  }
+},
+{
+  "type": "node",
+  "id": 4623060235,
+  "lat": 39.8918125,
+  "lon": 32.7888813,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "level": "0",
+    "name": "Coffee Break"
+  }
+},
+{
+  "type": "node",
+  "id": 4623064865,
+  "lat": 39.8926945,
+  "lon": 32.7822211,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Çatı",
+    "toilet": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537413,
+  "lat": 39.8936144,
+  "lon": 32.7831826,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Isaac Newton",
+    "wikimedia_commons": "File:Sir Isaac Newton bust in METU Campus Ankara Turkey.jpg"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537415,
+  "lat": 39.8924386,
+  "lon": 32.7883506,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "turkish",
+    "level": "0",
+    "name": "Hocam Kumpir"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537416,
+  "lat": 39.8924690,
+  "lon": 32.7883515,
+  "tags": {
+    "amenity": "fast_food",
+    "level": "-1",
+    "name": "Chicken Run"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537418,
+  "lat": 39.8925434,
+  "lon": 32.7884523,
+  "tags": {
+    "amenity": "fast_food",
+    "level": "-1",
+    "name": "Makara"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537419,
+  "lat": 39.8926936,
+  "lon": 32.7883317,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "kebab",
+    "level": "1",
+    "name": "Kebap 1956"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537424,
+  "lat": 39.8934735,
+  "lon": 32.7823552,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537425,
+  "lat": 39.8932625,
+  "lon": 32.7826432,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4627537428,
+  "lat": 39.8934409,
+  "lon": 32.7830381,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 4627563607,
+  "lat": 39.8957166,
+  "lon": 32.7829680,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "bicycle_parking": "wall_loops",
+    "capacity": "30",
+    "covered": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4627563608,
+  "lat": 39.8935732,
+  "lon": 32.7821535,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "covered": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4627563609,
+  "lat": 39.8951690,
+  "lon": 32.7838004,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "covered": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4895883067,
+  "lat": 39.8880636,
+  "lon": 32.7900597,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 4895883069,
+  "lat": 39.8880401,
+  "lon": 32.7895851,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5282104274,
+  "lat": 39.8966378,
+  "lon": 32.7755038,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Rutil Kafe"
+  }
+},
+{
+  "type": "node",
+  "id": 6085887736,
+  "lat": 39.8922621,
+  "lon": 32.7852192,
+  "tags": {
+    "barrier": "gate",
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6292078484,
+  "lat": 39.8821016,
+  "lon": 32.7953723,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "yes",
+    "colour": "brown",
+    "material": "wood",
+    "seats": "3"
+  }
+},
+{
+  "type": "node",
+  "id": 6292725718,
+  "lat": 39.8959336,
+  "lon": 32.7798952,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "yes",
+    "colour": "brown",
+    "material": "wood",
+    "seats": "12"
+  }
+},
+{
+  "type": "node",
+  "id": 6299881567,
+  "lat": 39.8959340,
+  "lon": 32.7798841,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6299881568,
+  "lat": 39.8959251,
+  "lon": 32.7798841,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 6299881569,
+  "lat": 39.8959257,
+  "lon": 32.7798957,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6310461017,
+  "lat": 39.8942699,
+  "lon": 32.7831843,
+  "tags": {
+    "artwork_type": "sculpture",
+    "material": "metal",
+    "name": "Kemal Kurdaş Heykeli",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6561717247,
+  "lat": 39.8901461,
+  "lon": 32.7893463,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 6949476343,
+  "lat": 39.9021515,
+  "lon": 32.7734009,
+  "tags": {
+    "addr:city": "Üniversiteler Mahallesi",
+    "addr:neighbourhood": "ODTÜ, Yabancı Diller Eğitimi Bölümü, Üniversiteler, WQ2F+W5, 06800 Çankaya/Ankara",
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "cuisine": "sandwich;burger",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Black Cafe (Kantin)",
+    "opening_hours": "08:30-17:30",
+    "outdoor_seating": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9320989392,
+  "lat": 39.8926669,
+  "lon": 32.7817239,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "name": "Kantin"
+  }
+},
+{
+  "type": "node",
+  "id": 9320989393,
+  "lat": 39.8913601,
+  "lon": 32.7824823,
+  "tags": {
+    "addr:postcode": "06800",
+    "amenity": "fast_food",
+    "name": "Kantin"
+  }
+},
+{
+  "type": "node",
+  "id": 10214597190,
+  "lat": 39.8918825,
+  "lon": 32.7887067,
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "name": "Solway"
+  }
+},
+{
+  "type": "node",
+  "id": 10214597191,
+  "lat": 39.8926900,
+  "lon": 32.7881873,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "ODTÜ Central"
+  }
+},
+{
+  "type": "node",
+  "id": 10236282439,
+  "lat": 39.8916893,
+  "lon": 32.7826205,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "Ahmet Atakan Anıtı",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079037,
+  "lat": 39.8928137,
+  "lon": 32.7874286,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079038,
+  "lat": 39.8929060,
+  "lon": 32.7870652,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079040,
+  "lat": 39.8926987,
+  "lon": 32.7871856,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079041,
+  "lat": 39.8926063,
+  "lon": 32.7871152,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079042,
+  "lat": 39.8926795,
+  "lon": 32.7870221,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079043,
+  "lat": 39.8926464,
+  "lon": 32.7873400,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079044,
+  "lat": 39.8925384,
+  "lon": 32.7872673,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079045,
+  "lat": 39.8924408,
+  "lon": 32.7872287,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079046,
+  "lat": 39.8925070,
+  "lon": 32.7870561,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079047,
+  "lat": 39.8931364,
+  "lon": 32.7862293,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079056,
+  "lat": 39.8928938,
+  "lon": 32.7866670,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079057,
+  "lat": 39.8928840,
+  "lon": 32.7867208,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079062,
+  "lat": 39.8927817,
+  "lon": 32.7866131,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079063,
+  "lat": 39.8927692,
+  "lon": 32.7866734,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079066,
+  "lat": 39.8929144,
+  "lon": 32.7864607,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079069,
+  "lat": 39.8929634,
+  "lon": 32.7862162,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079072,
+  "lat": 39.8930585,
+  "lon": 32.7859851,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079075,
+  "lat": 39.8931233,
+  "lon": 32.7857278,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079081,
+  "lat": 39.8928519,
+  "lon": 32.7861368,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079082,
+  "lat": 39.8928149,
+  "lon": 32.7862339,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079083,
+  "lat": 39.8930231,
+  "lon": 32.7867265,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079084,
+  "lat": 39.8926908,
+  "lon": 32.7855544,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079085,
+  "lat": 39.8925860,
+  "lon": 32.7855357,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079086,
+  "lat": 39.8926110,
+  "lon": 32.7857785,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079087,
+  "lat": 39.8924785,
+  "lon": 32.7857061,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079092,
+  "lat": 39.8922474,
+  "lon": 32.7867487,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079093,
+  "lat": 39.8921363,
+  "lon": 32.7866658,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079094,
+  "lat": 39.8920019,
+  "lon": 32.7870756,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079095,
+  "lat": 39.8932912,
+  "lon": 32.7873649,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079096,
+  "lat": 39.8932986,
+  "lon": 32.7871130,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079097,
+  "lat": 39.8958950,
+  "lon": 32.7841140,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079098,
+  "lat": 39.8955138,
+  "lon": 32.7827097,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079099,
+  "lat": 39.8955751,
+  "lon": 32.7827016,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079100,
+  "lat": 39.8979252,
+  "lon": 32.7828631,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079101,
+  "lat": 39.8978264,
+  "lon": 32.7827804,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 10901079102,
+  "lat": 39.8978278,
+  "lon": 32.7829439,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 11033893209,
+  "lat": 39.8921413,
+  "lon": 32.7884561,
+  "tags": {
+    "amenity": "cafe",
+    "bar": "no",
+    "check_date": "2023-07-08",
+    "cuisine": "do",
+    "delivery": "no",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Grano",
+    "outdoor_seating": "yes",
+    "takeaway": "only",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11033909657,
+  "lat": 39.8932219,
+  "lon": 32.7958181,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Central"
+  }
+},
+{
+  "type": "node",
+  "id": 11246143963,
+  "lat": 39.8926600,
+  "lon": 32.7823705,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 11712013920,
+  "lat": 39.8988493,
+  "lon": 32.7782827,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Thila Coffee",
+    "opening_hours": "Mo-Su 08:00-20:00",
+    "outdoor_seating": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11843456661,
+  "lat": 39.8920606,
+  "lon": 32.7785432,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11843456662,
+  "lat": 39.8925630,
+  "lon": 32.7779558,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 11843456663,
+  "lat": 39.8924435,
+  "lon": 32.7785053,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11925225286,
+  "lat": 39.8918331,
+  "lon": 32.7837947,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11925225322,
+  "lat": 39.8917234,
+  "lon": 32.7835056,
+  "tags": {
+    "entrance": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 12800524296,
+  "lat": 39.8946419,
+  "lon": 32.7818604,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12803119886,
+  "lat": 39.8941849,
+  "lon": 32.7827791,
+  "tags": {
+    "amenity": "bench"
+  }
+},
+{
+  "type": "node",
+  "id": 12860508790,
+  "lat": 39.8922040,
+  "lon": 32.7857074,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860520375,
+  "lat": 39.8982687,
+  "lon": 32.7837996,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860520376,
+  "lat": 39.8973090,
+  "lon": 32.7839353,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860535396,
+  "lat": 39.8947050,
+  "lon": 32.7845958,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860538078,
+  "lat": 39.9017411,
+  "lon": 32.7831999,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860540166,
+  "lat": 39.8955382,
+  "lon": 32.7844171,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860540167,
+  "lat": 39.8917711,
+  "lon": 32.7860336,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860548681,
+  "lat": 39.8944111,
+  "lon": 32.7846637,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860548683,
+  "lat": 39.8919101,
+  "lon": 32.7859271,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860549259,
+  "lat": 39.8914435,
+  "lon": 32.7862645,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860550700,
+  "lat": 39.8937646,
+  "lon": 32.7847821,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860551284,
+  "lat": 39.8964593,
+  "lon": 32.7842240,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860552070,
+  "lat": 39.8915226,
+  "lon": 32.7862068,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860561960,
+  "lat": 39.8922735,
+  "lon": 32.7855995,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860566527,
+  "lat": 39.9002270,
+  "lon": 32.7834189,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860567054,
+  "lat": 39.8934613,
+  "lon": 32.7848473,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860570333,
+  "lat": 39.8994466,
+  "lon": 32.7835694,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860571412,
+  "lat": 39.8967805,
+  "lon": 32.7840346,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860571547,
+  "lat": 39.8953912,
+  "lon": 32.7844493,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860572408,
+  "lat": 39.8941162,
+  "lon": 32.7847088,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860572409,
+  "lat": 39.8920502,
+  "lon": 32.7858232,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860575179,
+  "lat": 39.8951436,
+  "lon": 32.7845032,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860575180,
+  "lat": 39.8945986,
+  "lon": 32.7846070,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860577045,
+  "lat": 39.8960453,
+  "lon": 32.7843098,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860580215,
+  "lat": 39.8950837,
+  "lon": 32.7851495,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860582657,
+  "lat": 39.8919549,
+  "lon": 32.7858883,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860583299,
+  "lat": 39.8903098,
+  "lon": 32.7827826,
+  "tags": {
+    "amenity": "bench",
+    "backrest": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12860585705,
+  "lat": 39.8916534,
+  "lon": 32.7861178,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860586614,
+  "lat": 39.8918545,
+  "lon": 32.7859705,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 12860599606,
+  "lat": 39.8902894,
+  "lon": 32.7819528,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 12919075597,
+  "lat": 39.8971622,
+  "lon": 32.7992513,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Shelby Coffee & Bakery",
+    "opening_hours": "Mo-Su 09:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 12921944762,
+  "lat": 39.8955992,
+  "lon": 32.7968333,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Tetra N Roastery",
+    "opening_hours": "Mo-Su 09:00-23:00",
+    "website": "https://tetranroastery.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 13004155083,
+  "lat": 39.9001976,
+  "lon": 32.7816429,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 13004161205,
+  "lat": 39.9007492,
+  "lon": 32.7823756,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 13042155229,
+  "lat": 39.8911585,
+  "lon": 32.7826728,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042155230,
+  "lat": 39.8909716,
+  "lon": 32.7826711,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198178,
+  "lat": 39.8895218,
+  "lon": 32.7808220,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198181,
+  "lat": 39.8900750,
+  "lon": 32.7802817,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198182,
+  "lat": 39.8898563,
+  "lon": 32.7803139,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198187,
+  "lat": 39.8898594,
+  "lon": 32.7811558,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198188,
+  "lat": 39.8900315,
+  "lon": 32.7811336,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198189,
+  "lat": 39.8901488,
+  "lon": 32.7811115,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198190,
+  "lat": 39.8892618,
+  "lon": 32.7811312,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198191,
+  "lat": 39.8893223,
+  "lon": 32.7811273,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198192,
+  "lat": 39.8893765,
+  "lon": 32.7811191,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13042198193,
+  "lat": 39.8894415,
+  "lon": 32.7811096,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13043275706,
+  "lat": 39.8894220,
+  "lon": 32.7803850,
+  "tags": {
+    "entrance": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13043275710,
+  "lat": 39.8893317,
+  "lon": 32.7816477,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13056239180,
+  "lat": 39.8891603,
+  "lon": 32.7825020,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Makina B Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13056239181,
+  "lat": 39.8892103,
+  "lon": 32.7809311,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Makina G Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13056239198,
+  "lat": 39.8859086,
+  "lon": 32.7802805,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Maden Mühendisliği Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13056244844,
+  "lat": 39.8938568,
+  "lon": 32.7853960,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "ODTÜ Logosu",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 13056244998,
+  "lat": 39.9002859,
+  "lon": 32.7808806,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Hazırlık B Kantin"
+  }
+},
+{
+  "type": "node",
+  "id": 13056244999,
+  "lat": 39.9005066,
+  "lon": 32.7799865,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Hazırlık E Kantin"
+  }
+},
+{
+  "type": "node",
+  "id": 13057959108,
+  "lat": 39.8883122,
+  "lon": 32.7915334,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "9. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Osman Yazıcı Konukevi Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13057959109,
+  "lat": 39.8878507,
+  "lon": 32.7916137,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "9. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Faik Hızıroğlu Konukevi Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13057959110,
+  "lat": 39.8885788,
+  "lon": 32.7917146,
+  "tags": {
+    "addr:city": "Çankaya",
+    "addr:housename": "9. Yurt",
+    "addr:postcode": "06800",
+    "amenity": "cafe",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "15. Konukevi Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13060895216,
+  "lat": 39.8857182,
+  "lon": 32.7774093,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "19. Yurt Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13060895217,
+  "lat": 39.8847005,
+  "lon": 32.7773648,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Refika Aksoy Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13060895219,
+  "lat": 39.8873145,
+  "lon": 32.7771122,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "İsa Demiray Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13060895220,
+  "lat": 39.8865310,
+  "lon": 32.7774385,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Faika Demiray Kantini"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790581,
+  "lat": 39.8897006,
+  "lon": 32.7895184,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790582,
+  "lat": 39.8897177,
+  "lon": 32.7897164,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790583,
+  "lat": 39.8896828,
+  "lon": 32.7899505,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790584,
+  "lat": 39.8899537,
+  "lon": 32.7898008,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table",
+    "material": "wood"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790585,
+  "lat": 39.8899413,
+  "lon": 32.7895585,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table",
+    "material": "wood"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790586,
+  "lat": 39.8899250,
+  "lon": 32.7892902,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table",
+    "material": "wood"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790587,
+  "lat": 39.8901926,
+  "lon": 32.7877703,
+  "tags": {
+    "covered": "yes",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790588,
+  "lat": 39.8902377,
+  "lon": 32.7880033,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table",
+    "material": "wood"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790589,
+  "lat": 39.8902107,
+  "lon": 32.7883007,
+  "tags": {
+    "covered": "no",
+    "leisure": "picnic_table",
+    "material": "wood"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790590,
+  "lat": 39.8899650,
+  "lon": 32.7877421,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790591,
+  "lat": 39.8899452,
+  "lon": 32.7879633,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790592,
+  "lat": 39.8896611,
+  "lon": 32.7886534,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790593,
+  "lat": 39.8878616,
+  "lon": 32.7914420,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790594,
+  "lat": 39.8879217,
+  "lon": 32.7914433,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790595,
+  "lat": 39.8881814,
+  "lon": 32.7892699,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151790596,
+  "lat": 39.8882104,
+  "lon": 32.7891550,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820007,
+  "lat": 39.8907971,
+  "lon": 32.7878214,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820008,
+  "lat": 39.8908299,
+  "lon": 32.7879787,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820009,
+  "lat": 39.8908747,
+  "lon": 32.7881562,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820010,
+  "lat": 39.8904216,
+  "lon": 32.7873753,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820017,
+  "lat": 39.8882475,
+  "lon": 32.7908453,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820020,
+  "lat": 39.8897376,
+  "lon": 32.7892807,
+  "tags": {
+    "amenity": "bicycle_parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820021,
+  "lat": 39.8886656,
+  "lon": 32.7903065,
+  "tags": {
+    "amenity": "bicycle_parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13151820022,
+  "lat": 39.8889897,
+  "lon": 32.7904683,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 13805834562,
+  "lat": 39.8898789,
+  "lon": 32.7895122,
+  "tags": {
+    "amenity": "bicycle_parking",
+    "covered": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13805883453,
+  "lat": 39.8903307,
+  "lon": 32.7915277,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 13805890639,
+  "lat": 39.8907926,
+  "lon": 32.7925932,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 13805893430,
+  "lat": 39.8901929,
+  "lon": 32.7913270,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 13805900106,
+  "lat": 39.8909206,
+  "lon": 32.7927122,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 13805906343,
+  "lat": 39.8900307,
+  "lon": 32.7904774,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 13805907175,
+  "lat": 39.8905397,
+  "lon": 32.7921581,
+  "tags": {
+    "amenity": "waste_basket"
+  }
+},
 {
   "type": "way",
   "id": 4617512,
@@ -2487,6 +5367,39 @@
     "sport": "basketball;climbing;volleyball",
     "wheelchair": "limited",
     "wikimedia_commons": "Category:Middle East Technical University Sports Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 28115994,
+  "bounds": {
+    "minlat": 39.8883992,
+    "minlon": 32.7865608,
+    "maxlat": 39.8886478,
+    "maxlon": 32.7868151
+  },
+  "nodes": [
+    308834721,
+    308834722,
+    308834723,
+    308834724,
+    308834721
+  ],
+  "geometry": [
+    { "lat": 39.8886478, "lon": 32.7866799 },
+    { "lat": 39.8886008, "lon": 32.7868151 },
+    { "lat": 39.8883992, "lon": 32.7866960 },
+    { "lat": 39.8884463, "lon": 32.7865608 },
+    { "lat": 39.8886478, "lon": 32.7866799 }
+  ],
+  "tags": {
+    "access": "private",
+    "covered": "no",
+    "fee": "yes",
+    "leisure": "swimming_pool",
+    "name": "Açık Yüzme Havuzu",
+    "name:en": "Outdoor Swimming Pool",
+    "sport": "swimming"
   }
 },
 {
@@ -21517,6 +24430,61 @@
 },
 {
   "type": "way",
+  "id": 332455300,
+  "bounds": {
+    "minlat": 39.8947180,
+    "minlon": 32.7833542,
+    "maxlat": 39.8947569,
+    "maxlon": 32.7834049
+  },
+  "nodes": [
+    3395919202,
+    3395919200,
+    3395919198,
+    3395919196,
+    3395919197,
+    3395919199,
+    3395919201,
+    3395919203,
+    3395919205,
+    3395919207,
+    3395919209,
+    3395919211,
+    3395919210,
+    3395919208,
+    3395919206,
+    3395919204,
+    3395919202
+  ],
+  "geometry": [
+    { "lat": 39.8947307, "lon": 32.7833558 },
+    { "lat": 39.8947245, "lon": 32.7833606 },
+    { "lat": 39.8947200, "lon": 32.7833680 },
+    { "lat": 39.8947180, "lon": 32.7833770 },
+    { "lat": 39.8947186, "lon": 32.7833864 },
+    { "lat": 39.8947217, "lon": 32.7833949 },
+    { "lat": 39.8947270, "lon": 32.7834013 },
+    { "lat": 39.8947344, "lon": 32.7834049 },
+    { "lat": 39.8947422, "lon": 32.7834044 },
+    { "lat": 39.8947493, "lon": 32.7834000 },
+    { "lat": 39.8947544, "lon": 32.7833923 },
+    { "lat": 39.8947569, "lon": 32.7833825 },
+    { "lat": 39.8947561, "lon": 32.7833723 },
+    { "lat": 39.8947523, "lon": 32.7833632 },
+    { "lat": 39.8947461, "lon": 32.7833569 },
+    { "lat": 39.8947385, "lon": 32.7833542 },
+    { "lat": 39.8947307, "lon": 32.7833558 }
+  ],
+  "tags": {
+    "area": "yes",
+    "artist_name": "Şadi Çalık",
+    "artwork_type": "sculpture",
+    "start_date": "1966",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
   "id": 332455301,
   "bounds": {
     "minlat": 39.8835963,
@@ -21542,6 +24510,38 @@
     "amenity": "parking",
     "fee": "no",
     "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 332455302,
+  "bounds": {
+    "minlat": 39.8972220,
+    "minlon": 32.7826421,
+    "maxlat": 39.8973061,
+    "maxlon": 32.7828502
+  },
+  "nodes": [
+    3395919230,
+    3395919234,
+    3395919233,
+    3395919228,
+    3395919230
+  ],
+  "geometry": [
+    { "lat": 39.8972392, "lon": 32.7828502 },
+    { "lat": 39.8973061, "lon": 32.7828403 },
+    { "lat": 39.8972889, "lon": 32.7826421 },
+    { "lat": 39.8972220, "lon": 32.7826520 },
+    { "lat": 39.8972392, "lon": 32.7828502 }
+  ],
+  "tags": {
+    "artist_name": "Rolf Westphall",
+    "artwork_type": "sculpture",
+    "layer": "1",
+    "name": "ODTÜ Ata Heykeli",
+    "start_date": "1982",
+    "tourism": "artwork"
   }
 },
 {
@@ -32216,6 +35216,53 @@
 },
 {
   "type": "way",
+  "id": 422952789,
+  "bounds": {
+    "minlat": 39.8811524,
+    "minlon": 32.7615317,
+    "maxlat": 39.8851827,
+    "maxlon": 32.7650322
+  },
+  "nodes": [
+    4226704933,
+    4226704908,
+    11343786555,
+    4226704597,
+    4226704607,
+    4226704956,
+    4226704953,
+    4226704952,
+    4226704950,
+    4226704947,
+    4226704945,
+    4226704942,
+    4226704933
+  ],
+  "geometry": [
+    { "lat": 39.8840660, "lon": 32.7615611 },
+    { "lat": 39.8835009, "lon": 32.7618147 },
+    { "lat": 39.8827959, "lon": 32.7622355 },
+    { "lat": 39.8811524, "lon": 32.7631646 },
+    { "lat": 39.8817498, "lon": 32.7650322 },
+    { "lat": 39.8851827, "lon": 32.7631673 },
+    { "lat": 39.8847265, "lon": 32.7618182 },
+    { "lat": 39.8846276, "lon": 32.7617064 },
+    { "lat": 39.8845273, "lon": 32.7616148 },
+    { "lat": 39.8844030, "lon": 32.7615628 },
+    { "lat": 39.8842859, "lon": 32.7615317 },
+    { "lat": 39.8841787, "lon": 32.7615317 },
+    { "lat": 39.8840660, "lon": 32.7615611 }
+  ],
+  "tags": {
+    "contact:phone": "+903124902115",
+    "leisure": "sports_centre",
+    "name": "Sports International",
+    "source": "mapbox",
+    "website": "http://www.sportsinternational.com.tr/"
+  }
+},
+{
+  "type": "way",
   "id": 423640027,
   "bounds": {
     "minlat": 39.8888377,
@@ -32882,6 +35929,493 @@
   ],
   "tags": {
     "natural": "water",
+    "source": "mapbox"
+  }
+},
+{
+  "type": "way",
+  "id": 423686053,
+  "bounds": {
+    "minlat": 39.9014167,
+    "minlon": 32.7719028,
+    "maxlat": 39.9015243,
+    "maxlon": 32.7719993
+  },
+  "nodes": [
+    4232392817,
+    4232392814,
+    4232392805,
+    4232392804,
+    4232392798,
+    4232392788,
+    4232392765,
+    4232392763,
+    4232392764,
+    4232392752,
+    4232392745,
+    4232392744,
+    4232392748,
+    4232392755,
+    4232392759,
+    4232392783,
+    4232392782,
+    4232392793,
+    4232392801,
+    4232392812,
+    4232392817
+  ],
+  "geometry": [
+    { "lat": 39.9015243, "lon": 32.7719274 },
+    { "lat": 39.9015215, "lon": 32.7719372 },
+    { "lat": 39.9014978, "lon": 32.7719594 },
+    { "lat": 39.9014965, "lon": 32.7719895 },
+    { "lat": 39.9014850, "lon": 32.7719932 },
+    { "lat": 39.9014692, "lon": 32.7719675 },
+    { "lat": 39.9014386, "lon": 32.7719783 },
+    { "lat": 39.9014380, "lon": 32.7719842 },
+    { "lat": 39.9014383, "lon": 32.7719937 },
+    { "lat": 39.9014297, "lon": 32.7719993 },
+    { "lat": 39.9014176, "lon": 32.7719772 },
+    { "lat": 39.9014167, "lon": 32.7719508 },
+    { "lat": 39.9014260, "lon": 32.7719479 },
+    { "lat": 39.9014305, "lon": 32.7719555 },
+    { "lat": 39.9014338, "lon": 32.7719595 },
+    { "lat": 39.9014627, "lon": 32.7719424 },
+    { "lat": 39.9014623, "lon": 32.7719094 },
+    { "lat": 39.9014729, "lon": 32.7719028 },
+    { "lat": 39.9014887, "lon": 32.7719248 },
+    { "lat": 39.9015178, "lon": 32.7719222 },
+    { "lat": 39.9015243, "lon": 32.7719274 }
+  ],
+  "tags": {
+    "historic": "aircraft",
+    "source": "mapbox"
+  }
+},
+{
+  "type": "way",
+  "id": 423686054,
+  "bounds": {
+    "minlat": 39.8923024,
+    "minlon": 32.7761077,
+    "maxlat": 39.8930443,
+    "maxlon": 32.7770670
+  },
+  "nodes": [
+    4232391585,
+    4232391825,
+    4232391826,
+    4232391834,
+    4232391829,
+    4232391845,
+    4232391822,
+    4232391811,
+    4232391807,
+    4232391806,
+    4232391804,
+    4232391803,
+    4232391800,
+    4232391799,
+    4232391797,
+    4232391795,
+    4232391794,
+    4232391559,
+    4232391565,
+    4232391567,
+    4232391585
+  ],
+  "geometry": [
+    { "lat": 39.8926614, "lon": 32.7761077 },
+    { "lat": 39.8929062, "lon": 32.7765604 },
+    { "lat": 39.8929187, "lon": 32.7765489 },
+    { "lat": 39.8929805, "lon": 32.7766632 },
+    { "lat": 39.8929478, "lon": 32.7766932 },
+    { "lat": 39.8930443, "lon": 32.7768718 },
+    { "lat": 39.8928318, "lon": 32.7770670 },
+    { "lat": 39.8927526, "lon": 32.7769205 },
+    { "lat": 39.8927230, "lon": 32.7769479 },
+    { "lat": 39.8927227, "lon": 32.7769580 },
+    { "lat": 39.8927204, "lon": 32.7769676 },
+    { "lat": 39.8927162, "lon": 32.7769762 },
+    { "lat": 39.8927105, "lon": 32.7769830 },
+    { "lat": 39.8927036, "lon": 32.7769877 },
+    { "lat": 39.8926961, "lon": 32.7769900 },
+    { "lat": 39.8926883, "lon": 32.7769895 },
+    { "lat": 39.8926809, "lon": 32.7769865 },
+    { "lat": 39.8923024, "lon": 32.7762862 },
+    { "lat": 39.8923631, "lon": 32.7762304 },
+    { "lat": 39.8924178, "lon": 32.7763315 },
+    { "lat": 39.8926614, "lon": 32.7761077 }
+  ],
+  "tags": {
+    "leisure": "sports_centre",
+    "name": "ODTÜ Spor Merkezi",
+    "sport": "basketball;fitness;squash"
+  }
+},
+{
+  "type": "way",
+  "id": 423686055,
+  "bounds": {
+    "minlat": 39.9015569,
+    "minlon": 32.7720719,
+    "maxlat": 39.9016533,
+    "maxlon": 32.7721718
+  },
+  "nodes": [
+    4232392876,
+    4232392873,
+    4232392869,
+    4232392867,
+    4232392870,
+    4232392865,
+    4232392842,
+    4232392832,
+    4232392833,
+    4232392837,
+    4232392858,
+    4232392862,
+    4232392868,
+    4232392880,
+    4232392882,
+    4232392885,
+    4232392884,
+    4232392871,
+    4232392875,
+    4232392878,
+    4232392881,
+    4232392879,
+    4232392876
+  ],
+  "geometry": [
+    { "lat": 39.9016271, "lon": 32.7721655 },
+    { "lat": 39.9016187, "lon": 32.7721701 },
+    { "lat": 39.9016100, "lon": 32.7721718 },
+    { "lat": 39.9016056, "lon": 32.7721582 },
+    { "lat": 39.9016118, "lon": 32.7721507 },
+    { "lat": 39.9016009, "lon": 32.7721269 },
+    { "lat": 39.9015654, "lon": 32.7721504 },
+    { "lat": 39.9015569, "lon": 32.7721469 },
+    { "lat": 39.9015571, "lon": 32.7721342 },
+    { "lat": 39.9015602, "lon": 32.7721281 },
+    { "lat": 39.9015931, "lon": 32.7721055 },
+    { "lat": 39.9015954, "lon": 32.7720892 },
+    { "lat": 39.9016069, "lon": 32.7720958 },
+    { "lat": 39.9016393, "lon": 32.7720720 },
+    { "lat": 39.9016449, "lon": 32.7720719 },
+    { "lat": 39.9016533, "lon": 32.7720786 },
+    { "lat": 39.9016509, "lon": 32.7720897 },
+    { "lat": 39.9016165, "lon": 32.7721159 },
+    { "lat": 39.9016259, "lon": 32.7721407 },
+    { "lat": 39.9016342, "lon": 32.7721380 },
+    { "lat": 39.9016405, "lon": 32.7721502 },
+    { "lat": 39.9016347, "lon": 32.7721588 },
+    { "lat": 39.9016271, "lon": 32.7721655 }
+  ],
+  "tags": {
+    "historic": "aircraft",
+    "source": "mapbox"
+  }
+},
+{
+  "type": "way",
+  "id": 423686056,
+  "bounds": {
+    "minlat": 39.9014285,
+    "minlon": 32.7725314,
+    "maxlat": 39.9015154,
+    "maxlon": 32.7726099
+  },
+  "nodes": [
+    4232392811,
+    4232392808,
+    4232392799,
+    4232392794,
+    4232392780,
+    4232392772,
+    4232392773,
+    4232392778,
+    4232392766,
+    4232392761,
+    4232392757,
+    4232392750,
+    4232392756,
+    4232392753,
+    4232392758,
+    4232392762,
+    4232392767,
+    4232392779,
+    4232392776,
+    4232392775,
+    4232392785,
+    4232392795,
+    4232392800,
+    4232392809,
+    4232392811
+  ],
+  "geometry": [
+    { "lat": 39.9015154, "lon": 32.7725749 },
+    { "lat": 39.9015119, "lon": 32.7725781 },
+    { "lat": 39.9014851, "lon": 32.7725833 },
+    { "lat": 39.9014729, "lon": 32.7725938 },
+    { "lat": 39.9014601, "lon": 32.7726099 },
+    { "lat": 39.9014500, "lon": 32.7726097 },
+    { "lat": 39.9014508, "lon": 32.7726022 },
+    { "lat": 39.9014585, "lon": 32.7725786 },
+    { "lat": 39.9014404, "lon": 32.7725761 },
+    { "lat": 39.9014360, "lon": 32.7725836 },
+    { "lat": 39.9014312, "lon": 32.7725867 },
+    { "lat": 39.9014285, "lon": 32.7725854 },
+    { "lat": 39.9014311, "lon": 32.7725692 },
+    { "lat": 39.9014299, "lon": 32.7725526 },
+    { "lat": 39.9014327, "lon": 32.7725517 },
+    { "lat": 39.9014372, "lon": 32.7725554 },
+    { "lat": 39.9014410, "lon": 32.7725635 },
+    { "lat": 39.9014592, "lon": 32.7725634 },
+    { "lat": 39.9014534, "lon": 32.7725389 },
+    { "lat": 39.9014533, "lon": 32.7725314 },
+    { "lat": 39.9014633, "lon": 32.7725325 },
+    { "lat": 39.9014747, "lon": 32.7725502 },
+    { "lat": 39.9014861, "lon": 32.7725624 },
+    { "lat": 39.9015123, "lon": 32.7725711 },
+    { "lat": 39.9015154, "lon": 32.7725749 }
+  ],
+  "tags": {
+    "historic": "aircraft",
+    "source": "mapbox"
+  }
+},
+{
+  "type": "way",
+  "id": 423686058,
+  "bounds": {
+    "minlat": 39.9010770,
+    "minlon": 32.7723502,
+    "maxlat": 39.9012350,
+    "maxlon": 32.7724934
+  },
+  "nodes": [
+    4232392717,
+    4232392716,
+    4232392707,
+    4232392701,
+    4232392697,
+    4232392692,
+    4232392691,
+    4232392695,
+    4232392684,
+    4232392682,
+    4232392679,
+    4232392676,
+    4232392677,
+    4232392674,
+    4232392675,
+    4232392680,
+    4232392683,
+    4232392694,
+    4232392689,
+    4232392687,
+    4232392693,
+    4232392699,
+    4232392705,
+    4232392715,
+    4232392717
+  ],
+  "geometry": [
+    { "lat": 39.9012350, "lon": 32.7724047 },
+    { "lat": 39.9012295, "lon": 32.7724117 },
+    { "lat": 39.9011830, "lon": 32.7724319 },
+    { "lat": 39.9011637, "lon": 32.7724557 },
+    { "lat": 39.9011448, "lon": 32.7724896 },
+    { "lat": 39.9011267, "lon": 32.7724934 },
+    { "lat": 39.9011262, "lon": 32.7724798 },
+    { "lat": 39.9011343, "lon": 32.7724345 },
+    { "lat": 39.9011014, "lon": 32.7724374 },
+    { "lat": 39.9010954, "lon": 32.7724525 },
+    { "lat": 39.9010876, "lon": 32.7724601 },
+    { "lat": 39.9010824, "lon": 32.7724588 },
+    { "lat": 39.9010832, "lon": 32.7724287 },
+    { "lat": 39.9010770, "lon": 32.7723998 },
+    { "lat": 39.9010819, "lon": 32.7723969 },
+    { "lat": 39.9010908, "lon": 32.7724018 },
+    { "lat": 39.9010994, "lon": 32.7724145 },
+    { "lat": 39.9011319, "lon": 32.7724070 },
+    { "lat": 39.9011156, "lon": 32.7723656 },
+    { "lat": 39.9011136, "lon": 32.7723523 },
+    { "lat": 39.9011319, "lon": 32.7723502 },
+    { "lat": 39.9011565, "lon": 32.7723772 },
+    { "lat": 39.9011796, "lon": 32.7723943 },
+    { "lat": 39.9012285, "lon": 32.7723992 },
+    { "lat": 39.9012350, "lon": 32.7724047 }
+  ],
+  "tags": {
+    "historic": "aircraft",
+    "source": "mapbox"
+  }
+},
+{
+  "type": "way",
+  "id": 423686059,
+  "bounds": {
+    "minlat": 39.9016751,
+    "minlon": 32.7717896,
+    "maxlat": 39.9017933,
+    "maxlon": 32.7719331
+  },
+  "nodes": [
+    4232392905,
+    4232392906,
+    4232392908,
+    4232392909,
+    4232392922,
+    4232392923,
+    4232392928,
+    4232392927,
+    4232392920,
+    4232392921,
+    4232392910,
+    4232392907,
+    4232392915,
+    4232392914,
+    4232392896,
+    4232392897,
+    4232392899,
+    4232392900,
+    4232392891,
+    4232392890,
+    4232392888,
+    4232392889,
+    4232392893,
+    4232392892,
+    4232392902,
+    4232392903,
+    4232392904,
+    4232392905
+  ],
+  "geometry": [
+    { "lat": 39.9017353, "lon": 32.7717896 },
+    { "lat": 39.9017381, "lon": 32.7717979 },
+    { "lat": 39.9017384, "lon": 32.7718201 },
+    { "lat": 39.9017385, "lon": 32.7718580 },
+    { "lat": 39.9017820, "lon": 32.7718611 },
+    { "lat": 39.9017823, "lon": 32.7718442 },
+    { "lat": 39.9017933, "lon": 32.7718446 },
+    { "lat": 39.9017924, "lon": 32.7718929 },
+    { "lat": 39.9017814, "lon": 32.7718926 },
+    { "lat": 39.9017817, "lon": 32.7718797 },
+    { "lat": 39.9017388, "lon": 32.7718784 },
+    { "lat": 39.9017381, "lon": 32.7719180 },
+    { "lat": 39.9017595, "lon": 32.7719187 },
+    { "lat": 39.9017593, "lon": 32.7719331 },
+    { "lat": 39.9017069, "lon": 32.7719317 },
+    { "lat": 39.9017071, "lon": 32.7719172 },
+    { "lat": 39.9017286, "lon": 32.7719178 },
+    { "lat": 39.9017292, "lon": 32.7718781 },
+    { "lat": 39.9016863, "lon": 32.7718770 },
+    { "lat": 39.9016861, "lon": 32.7718899 },
+    { "lat": 39.9016751, "lon": 32.7718896 },
+    { "lat": 39.9016759, "lon": 32.7718412 },
+    { "lat": 39.9016869, "lon": 32.7718415 },
+    { "lat": 39.9016866, "lon": 32.7718584 },
+    { "lat": 39.9017302, "lon": 32.7718578 },
+    { "lat": 39.9017316, "lon": 32.7718199 },
+    { "lat": 39.9017327, "lon": 32.7717978 },
+    { "lat": 39.9017353, "lon": 32.7717896 }
+  ],
+  "tags": {
+    "historic": "aircraft",
+    "source": "mapbox"
+  }
+},
+{
+  "type": "way",
+  "id": 423686061,
+  "bounds": {
+    "minlat": 39.9014288,
+    "minlon": 32.7715955,
+    "maxlat": 39.9015951,
+    "maxlon": 32.7719080
+  },
+  "nodes": [
+    4232392789,
+    4232392792,
+    4232392787,
+    4232392777,
+    4232392770,
+    4232392751,
+    4232392760,
+    4232392769,
+    4232392784,
+    4232392816,
+    4232392791,
+    4232392790,
+    4232392827,
+    4232392835,
+    4232392838,
+    4232392841,
+    4232392840,
+    4232392830,
+    4232392831,
+    4232392853,
+    4232392854,
+    4232392857,
+    4232392860,
+    4232392861,
+    4232392859,
+    4232392856,
+    4232392834,
+    4232392843,
+    4232392848,
+    4232392851,
+    4232392852,
+    4232392849,
+    4232392844,
+    4232392850,
+    4232392845,
+    4232392823,
+    4232392789
+  ],
+  "geometry": [
+    { "lat": 39.9014696, "lon": 32.7717984 },
+    { "lat": 39.9014711, "lon": 32.7718299 },
+    { "lat": 39.9014658, "lon": 32.7718430 },
+    { "lat": 39.9014572, "lon": 32.7718429 },
+    { "lat": 39.9014457, "lon": 32.7718023 },
+    { "lat": 39.9014288, "lon": 32.7717652 },
+    { "lat": 39.9014341, "lon": 32.7717565 },
+    { "lat": 39.9014452, "lon": 32.7717594 },
+    { "lat": 39.9014630, "lon": 32.7717809 },
+    { "lat": 39.9015239, "lon": 32.7717421 },
+    { "lat": 39.9014710, "lon": 32.7716193 },
+    { "lat": 39.9014706, "lon": 32.7715955 },
+    { "lat": 39.9015442, "lon": 32.7716976 },
+    { "lat": 39.9015595, "lon": 32.7716909 },
+    { "lat": 39.9015627, "lon": 32.7716917 },
+    { "lat": 39.9015653, "lon": 32.7716955 },
+    { "lat": 39.9015650, "lon": 32.7717001 },
+    { "lat": 39.9015501, "lon": 32.7717090 },
+    { "lat": 39.9015528, "lon": 32.7717253 },
+    { "lat": 39.9015868, "lon": 32.7717062 },
+    { "lat": 39.9015904, "lon": 32.7717064 },
+    { "lat": 39.9015930, "lon": 32.7717081 },
+    { "lat": 39.9015945, "lon": 32.7717102 },
+    { "lat": 39.9015951, "lon": 32.7717131 },
+    { "lat": 39.9015944, "lon": 32.7717168 },
+    { "lat": 39.9015923, "lon": 32.7717206 },
+    { "lat": 39.9015594, "lon": 32.7717429 },
+    { "lat": 39.9015674, "lon": 32.7717559 },
+    { "lat": 39.9015821, "lon": 32.7717465 },
+    { "lat": 39.9015850, "lon": 32.7717491 },
+    { "lat": 39.9015856, "lon": 32.7717541 },
+    { "lat": 39.9015841, "lon": 32.7717579 },
+    { "lat": 39.9015704, "lon": 32.7717691 },
+    { "lat": 39.9015845, "lon": 32.7719080 },
+    { "lat": 39.9015707, "lon": 32.7718925 },
+    { "lat": 39.9015312, "lon": 32.7717615 },
+    { "lat": 39.9014696, "lon": 32.7717984 }
+  ],
+  "tags": {
+    "historic": "aircraft",
     "source": "mapbox"
   }
 },
@@ -56545,6 +60079,34 @@
 },
 {
   "type": "way",
+  "id": 467654588,
+  "bounds": {
+    "minlat": 39.8943965,
+    "minlon": 32.7830765,
+    "maxlat": 39.8944178,
+    "maxlon": 32.7831652
+  },
+  "nodes": [
+    4622591830,
+    4622591831,
+    4622591832,
+    4622591833,
+    4622591830
+  ],
+  "geometry": [
+    { "lat": 39.8943998, "lon": 32.7830765 },
+    { "lat": 39.8943965, "lon": 32.7831641 },
+    { "lat": 39.8944146, "lon": 32.7831652 },
+    { "lat": 39.8944178, "lon": 32.7830776 },
+    { "lat": 39.8943998, "lon": 32.7830765 }
+  ],
+  "tags": {
+    "historic": "memorial",
+    "name": "Kemal Kurdaş Anıtı"
+  }
+},
+{
+  "type": "way",
   "id": 467654589,
   "bounds": {
     "minlat": 39.8946190,
@@ -56596,6 +60158,30 @@
     "highway": "service",
     "lit": "yes",
     "service": "parking_aisle"
+  }
+},
+{
+  "type": "way",
+  "id": 467654593,
+  "bounds": {
+    "minlat": 39.8928173,
+    "minlon": 32.7838122,
+    "maxlat": 39.8928695,
+    "maxlon": 32.7839548
+  },
+  "nodes": [
+    3395953559,
+    4623055080,
+    3395953560
+  ],
+  "geometry": [
+    { "lat": 39.8928173, "lon": 32.7838122 },
+    { "lat": 39.8928435, "lon": 32.7838837 },
+    { "lat": 39.8928695, "lon": 32.7839548 }
+  ],
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
   }
 },
 {
@@ -66513,6 +70099,35 @@
 },
 {
   "type": "way",
+  "id": 734600085,
+  "bounds": {
+    "minlat": 39.8821562,
+    "minlon": 32.7949376,
+    "maxlat": 39.8822777,
+    "maxlon": 32.7950239
+  },
+  "nodes": [
+    6879632535,
+    6291720832,
+    6291720833,
+    6295153214,
+    6879632535
+  ],
+  "geometry": [
+    { "lat": 39.8822777, "lon": 32.7949376 },
+    { "lat": 39.8822764, "lon": 32.7949944 },
+    { "lat": 39.8821694, "lon": 32.7950239 },
+    { "lat": 39.8821562, "lon": 32.7949462 },
+    { "lat": 39.8822777, "lon": 32.7949376 }
+  ],
+  "tags": {
+    "leisure": "playground",
+    "name": "Çamlık Sitesi Çimlik Çocuk Parkı",
+    "surface": "grass"
+  }
+},
+{
+  "type": "way",
   "id": 814336399,
   "bounds": {
     "minlat": 39.8984015,
@@ -73224,6 +76839,152 @@
   "tags": {
     "name": "Kavaklık",
     "natural": "wood"
+  }
+},
+{
+  "type": "way",
+  "id": 1116878855,
+  "bounds": {
+    "minlat": 39.8908323,
+    "minlon": 32.7875931,
+    "maxlat": 39.8911997,
+    "maxlon": 32.7883299
+  },
+  "nodes": [
+    10214597192,
+    10214597194,
+    10214597195,
+    10214597196,
+    10214597192
+  ],
+  "geometry": [
+    { "lat": 39.8911997, "lon": 32.7882640 },
+    { "lat": 39.8909516, "lon": 32.7883299 },
+    { "lat": 39.8908323, "lon": 32.7877039 },
+    { "lat": 39.8911005, "lon": 32.7875931 },
+    { "lat": 39.8911997, "lon": 32.7882640 }
+  ],
+  "tags": {
+    "leisure": "miniature_golf",
+    "name": "ODTÜ Golf Sahası"
+  }
+},
+{
+  "type": "way",
+  "id": 1116882307,
+  "bounds": {
+    "minlat": 39.8909112,
+    "minlon": 32.7847571,
+    "maxlat": 39.8912234,
+    "maxlon": 32.7851941
+  },
+  "nodes": [
+    6085988022,
+    6085988037,
+    4622453658,
+    392921228,
+    6085988022
+  ],
+  "geometry": [
+    { "lat": 39.8912234, "lon": 32.7850600 },
+    { "lat": 39.8910753, "lon": 32.7851941 },
+    { "lat": 39.8909112, "lon": 32.7849428 },
+    { "lat": 39.8910819, "lon": 32.7847571 },
+    { "lat": 39.8912234, "lon": 32.7850600 }
+  ],
+  "tags": {
+    "leisure": "bleachers",
+    "name": "D Harfi",
+    "name:en": "Letter D"
+  }
+},
+{
+  "type": "way",
+  "id": 1116882308,
+  "bounds": {
+    "minlat": 39.8910819,
+    "minlon": 32.7846077,
+    "maxlat": 39.8913860,
+    "maxlon": 32.7850600
+  },
+  "nodes": [
+    6085987986,
+    4622453666,
+    392921228,
+    6085988022,
+    6085988048,
+    6085987986
+  ],
+  "geometry": [
+    { "lat": 39.8913860, "lon": 32.7849473 },
+    { "lat": 39.8912796, "lon": 32.7846077 },
+    { "lat": 39.8910819, "lon": 32.7847571 },
+    { "lat": 39.8912234, "lon": 32.7850600 },
+    { "lat": 39.8913145, "lon": 32.7849969 },
+    { "lat": 39.8913860, "lon": 32.7849473 }
+  ],
+  "tags": {
+    "leisure": "bleachers",
+    "name": "EV Harfleri",
+    "name:en": "Letters EV"
+  }
+},
+{
+  "type": "way",
+  "id": 1116882309,
+  "bounds": {
+    "minlat": 39.8912796,
+    "minlon": 32.7845074,
+    "maxlat": 39.8915548,
+    "maxlon": 32.7849473
+  },
+  "nodes": [
+    4622453667,
+    4622453666,
+    6085987986,
+    6085988021,
+    4622453667
+  ],
+  "geometry": [
+    { "lat": 39.8914910, "lon": 32.7845074 },
+    { "lat": 39.8912796, "lon": 32.7846077 },
+    { "lat": 39.8913860, "lon": 32.7849473 },
+    { "lat": 39.8915548, "lon": 32.7848481 },
+    { "lat": 39.8914910, "lon": 32.7845074 }
+  ],
+  "tags": {
+    "leisure": "bleachers",
+    "name": "Rİ Harfleri",
+    "name:en": "Letters Rİ"
+  }
+},
+{
+  "type": "way",
+  "id": 1116882310,
+  "bounds": {
+    "minlat": 39.8914910,
+    "minlon": 32.7844675,
+    "maxlat": 39.8917338,
+    "maxlon": 32.7848481
+  },
+  "nodes": [
+    6085987994,
+    4622453669,
+    4622453667,
+    6085988021,
+    6085987994
+  ],
+  "geometry": [
+    { "lat": 39.8917338, "lon": 32.7847676 },
+    { "lat": 39.8917182, "lon": 32.7844675 },
+    { "lat": 39.8914910, "lon": 32.7845074 },
+    { "lat": 39.8915548, "lon": 32.7848481 },
+    { "lat": 39.8917338, "lon": 32.7847676 }
+  ],
+  "tags": {
+    "leisure": "bleachers",
+    "name": "M Harfi",
+    "name:en": "Letter M"
   }
 },
 {
@@ -84035,6 +87796,40 @@
 },
 {
   "type": "way",
+  "id": 1411171875,
+  "bounds": {
+    "minlat": 39.9018320,
+    "minlon": 32.7714324,
+    "maxlat": 39.9019480,
+    "maxlon": 32.7716571
+  },
+  "nodes": [
+    12966447180,
+    12966447181,
+    12966447182,
+    12966447183,
+    12966447180
+  ],
+  "geometry": [
+    { "lat": 39.9019480, "lon": 32.7714529 },
+    { "lat": 39.9018601, "lon": 32.7716571 },
+    { "lat": 39.9018320, "lon": 32.7716366 },
+    { "lat": 39.9019199, "lon": 32.7714324 },
+    { "lat": 39.9019480, "lon": 32.7714529 }
+  ],
+  "tags": {
+    "description": "Vulcan Foundry (GB) n°5691",
+    "historic": "locomotive",
+    "locomotive:type": "steam",
+    "name": "Tarihi Lokomotif 56088",
+    "name:en": "Steam engine 56088",
+    "operator": "TCDD",
+    "ref": "56088",
+    "start_date": "1948"
+  }
+},
+{
+  "type": "way",
   "id": 1414496107,
   "bounds": {
     "minlat": 39.8940873,
@@ -84546,6 +88341,40 @@
     "maxspeed": "50",
     "oneway": "yes",
     "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1415662110,
+  "bounds": {
+    "minlat": 39.9027855,
+    "minlon": 32.7992315,
+    "maxlat": 39.9028480,
+    "maxlon": 32.7993086
+  },
+  "nodes": [
+    13009254518,
+    13009254519,
+    13009254520,
+    13009254521,
+    13009254518
+  ],
+  "geometry": [
+    { "lat": 39.9027855, "lon": 32.7992817 },
+    { "lat": 39.9028301, "lon": 32.7992315 },
+    { "lat": 39.9028480, "lon": 32.7992584 },
+    { "lat": 39.9028033, "lon": 32.7993086 },
+    { "lat": 39.9027855, "lon": 32.7992817 }
+  ],
+  "tags": {
+    "description": "Bagnall locomotive",
+    "gauge": "600",
+    "historic": "locomotive",
+    "locomotive:type": "steam",
+    "name": "MTA Tarihi Lokomotif",
+    "name:en": "Mining steam engine",
+    "ref": "4",
+    "start_date": "1948"
   }
 },
 {
@@ -87509,6 +91338,51 @@
   ],
   "tags": {
     "highway": "steps"
+  }
+},
+{
+  "type": "way",
+  "id": 1420749669,
+  "bounds": {
+    "minlat": 39.8935004,
+    "minlon": 32.7849609,
+    "maxlat": 39.8938380,
+    "maxlon": 32.7853347
+  },
+  "nodes": [
+    13056244841,
+    13056244830,
+    13056244829,
+    13056244828,
+    13056244827,
+    13056244826,
+    13056244825,
+    13056244824,
+    13056244823,
+    13056244822,
+    13056244840,
+    13056244842,
+    13056244841
+  ],
+  "geometry": [
+    { "lat": 39.8938005, "lon": 32.7849609 },
+    { "lat": 39.8938380, "lon": 32.7852119 },
+    { "lat": 39.8938092, "lon": 32.7852608 },
+    { "lat": 39.8937808, "lon": 32.7852907 },
+    { "lat": 39.8937463, "lon": 32.7853143 },
+    { "lat": 39.8937092, "lon": 32.7853311 },
+    { "lat": 39.8936668, "lon": 32.7853347 },
+    { "lat": 39.8936255, "lon": 32.7853329 },
+    { "lat": 39.8935894, "lon": 32.7853268 },
+    { "lat": 39.8935628, "lon": 32.7853163 },
+    { "lat": 39.8935309, "lon": 32.7852906 },
+    { "lat": 39.8935004, "lon": 32.7850379 },
+    { "lat": 39.8938005, "lon": 32.7849609 }
+  ],
+  "tags": {
+    "area": "yes",
+    "artwork_type": "statue",
+    "tourism": "artwork"
   }
 },
 {
