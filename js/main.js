@@ -7,6 +7,8 @@ import { zeminOlustur } from './zemin.js';
 import { binaIzgarasiOlustur, binalariOlustur } from './binalar.js';
 import { agaclariOlustur } from './agaclar.js';
 import { dolulukOlustur } from './doluluk.js';
+import { binaAdlariniYukle, adliBinalariBul } from './bina-adlari.js';
+import { girisleriBul, tabelaYerleriniSec, tabelalariOlustur } from './tabelalar.js';
 import { kameraKontrolleriniKur } from './kamera.js';
 
 const GOK_RENGI = 0x8ec8ff;
@@ -39,6 +41,11 @@ async function baslat() {
   console.info(`Binalar: ${binaIzgarasi.binaSayisi} bina, ${binalar.userData.dortgenSayisi} dörtgen`);
 
   const doluluk = dolulukOlustur(izgara, binaIzgarasi); // tabela, nesne ve ağaçlar birbirine girmesin
+
+  const adliBinalar = adliBinalariBul(osm, await binaAdlariniYukle(), binaIzgarasi);
+  const tabelalar = tabelalariOlustur(tabelaYerleriniSec(adliBinalar, girisleriBul(osm), izgara, doluluk), GOK_RENGI);
+  sahne.add(tabelalar);
+  console.info(`Tabelalar: ${tabelalar.userData.tabelaSayisi} tabela (${adliBinalar.length} adlı bina)`);
 
   const agaclar = await agaclariOlustur(izgara, binaIzgarasi, GOK_RENGI, doluluk);
   sahne.add(agaclar);
