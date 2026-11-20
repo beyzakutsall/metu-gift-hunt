@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hediye Avı: Kafe Paneli</title>
+  <link rel="stylesheet" href="js/oyun/arayuz.css">
+  <style>
+    body { margin: 0; background: #8ec8ff; min-height: 100vh; }
+    #kafe { display: flex; flex-direction: column; gap: 12px; }
+    #kafe select { width: 100%; }
+    .oyun-tablo-kap { overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <!-- Kafe görevlisi paneli: askıda ürün kuponu oluşturma ve kullanma. ?sahte=1 ile sunucusuz. -->
+  <main id="kafe" class="oyun-panel">
+    <p>Yükleniyor…</p>
+  </main>
+  <script type="module" src="js/kafe/panel.js"></script>
+</body>
+</html>
