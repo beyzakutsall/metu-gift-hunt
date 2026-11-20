@@ -10,6 +10,7 @@ import { dolulukOlustur } from './doluluk.js';
 import { binaAdlariniYukle, adliBinalariBul } from './bina-adlari.js';
 import { girisleriBul, tabelaYerleriniSec, tabelalariOlustur } from './tabelalar.js';
 import { etiketleriOlustur } from './etiketler.js';
+import { elleEklenenleriYukle, nesneYerleriniSec, nesneleriOlustur } from './nesneler.js';
 import { kameraKontrolleriniKur } from './kamera.js';
 
 const GOK_RENGI = 0x8ec8ff;
@@ -50,6 +51,11 @@ async function baslat() {
   sahne.add(etiketler);
   console.info(`Tabelalar: ${tabelalar.userData.tabelaSayisi} tabela (${adliBinalar.length} adlı bina), ${etiketler.userData.etiketSayisi} yüzen etiket`);
 
+  const nesneler = nesneleriOlustur(nesneYerleriniSec(osm, await elleEklenenleriYukle(), izgara, doluluk), GOK_RENGI);
+  sahne.add(nesneler);
+  const nesneSayilari = Object.entries(nesneler.userData.sayilar).map(([tur, n]) => `${n} ${tur}`).join(', ');
+  console.info(`Nesneler: ${nesneSayilari} (toplam ${nesneler.userData.toplamUcgen} üçgen)`);
+
   const agaclar = await agaclariOlustur(izgara, binaIzgarasi, GOK_RENGI, doluluk);
   sahne.add(agaclar);
 
@@ -67,6 +73,7 @@ async function baslat() {
 
   renderer.setAnimationLoop((zamanMs) => {
     agaclar.userData.guncelle(zamanMs / 1000); // ışıkların yanıp sönmesi
+    nesneler.userData.guncelle(zamanMs / 1000); // lambalar gece yanar
     kontroller.update();
     etiketler.userData.guncelle(kamera, window.innerWidth, window.innerHeight); // yakında solar, çakışan gizlenir
     renderer.render(sahne, kamera);
