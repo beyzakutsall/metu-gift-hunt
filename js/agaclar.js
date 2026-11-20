@@ -1,7 +1,9 @@
 // Ağaçlar: iki tür ağaç var.
-// - Süslü yılbaşı ağaçları: modeller/yilbasi-agaci.vox (MagicaVoxel) dosyasından okunur ve
-//   yürüme yollarının kenarındaki çimlere dikilir. Paletteki parlak sarı bloklar ışıktır, yanıp söner.
-// - Sade çamlar: aynı biçimde ama süssüz; ormanlık alanları doldurur.
+// - Süslü yılbaşı ağaçları: modeller/yilbasi-agaci.glb (Sketchfab, CC BY 4.0) dosyasından okunur ve
+//   yürüme yollarının kenarındaki çimlere dikilir. Dokudaki parlak sarı pikseller ampuldür, yanıp söner.
+//   GLB yüklenemezse modeller/yilbasi-agaci.vox (MagicaVoxel) kullanılır; orada paletteki parlak sarı
+//   bloklar ışıktır.
+// - Sade çamlar: voksel biçiminde ama süssüz; ormanlık alanları doldurur.
 // Her tür tek bir geometridir ve InstancedMesh ile yüzlerce/binlerce kez çizilir. Harita
 // 128x128 blokluk parçalara bölünür ki ekranda görünmeyen parçalar hiç çizilmesin.
 import * as THREE from 'three';
@@ -9,9 +11,10 @@ import { ZEMIN } from './dunya.js';
 import { rastgeleUretici } from './rastgele.js';
 
 const PARCA = 128;              // parça boyutu (blok)
-const SUSLU_AGAC_BOYU = 6;      // blok; 1 blok ≈ 3 m
+const SUSLU_AGAC_BOYU = 10;     // blok; 1 blok ≈ 3 m
 const SADE_AGAC_BOYU = 5;
 const EN_FAZLA_SUSLU = 400;
+const EN_BUYUK_OLCEK = 1.15;    // orman() her ağacın boyunu 0.85 ile bu değer arasında değiştirir
 
 // ---------------- .vox okuyucu ----------------
 // MagicaVoxel dosyasındaki ilk modelin boyutunu, voksellerini ve paletini döndürür.
@@ -158,6 +161,53 @@ function voxtanGeometri(vox, hedefBoy) {
   return g;
 }
 
+// ---------------- GLB → geometri ----------------
+// Modeldeki tüm parçaları (hepsi aynı malzemeyi ve dokuyu kullanır) kendi konumlarıyla tek
+// geometride birleştirir, böylece her harita parçası için yine tek çizim çağrısı kalır.
+// Ağacın tabanı orijinde, boyu hedefBoy blok olur. Geometriyle birlikte dokuyu döndürür.
+async function glbdenGeometri(adres, hedefBoy) {
+  // Yükleyiciler sayfadaki three ile aynı sürümden gelir (import map'teki three/addons/)
+  const [{ GLTFLoader }, { mergeGeometries }] = await Promise.all([
+    import('three/addons/loaders/GLTFLoader.js'),
+    import('three/addons/utils/BufferGeometryUtils.js')
+  ]);
+  const gltf = await new GLTFLoader().loadAsync(adres);
+  gltf.scene.updateMatrixWorld(true);
+
+  const parcalar = [];
+  let doku = null;
+  gltf.scene.traverse((o) => {
+    if (!o.isMesh) return;
+    doku ??= o.material.map;
+    parcalar.push(o.geometry.clone().applyMatrix4(o.matrixWorld));
+  });
+  if (!doku) throw new Error('GLB modelinde doku bulunamadı');
+  const g = mergeGeometries(parcalar);
+  if (!g) throw new Error('GLB modelinin parçaları birleştirilemedi');
+
+  g.computeBoundingBox();
+  const { min, max } = g.boundingBox;
+  const olcek = hedefBoy / (max.y - min.y);
+  g.translate(-(min.x + max.x) / 2, -min.y, -(min.z + max.z) / 2);
+  g.scale(olcek, olcek, olcek);
+  g.computeBoundingSphere();
+
+  // Shader renkleri dönüştürmeden ekrana basar (vox paletinde olduğu gibi); doku da ham okunmalı
+  doku.colorSpace = THREE.NoColorSpace;
+  return { geometri: g, doku };
+}
+
+// Ağacın kuşbakışı yarı genişliği (blok), en büyük boy farkıyla birlikte. Ağaçlar 90°'nin
+// katları kadar döndüğü için taban karesi eksenlere hizalı kalır; |x| ve |z|'nin en büyüğü yeter.
+function tabanYaricapi(g) {
+  const p = g.attributes.position;
+  let r = 0;
+  for (let k = 0; k < p.count; k++) r = Math.max(r, Math.abs(p.getX(k)), Math.abs(p.getZ(k)));
+  return r * EN_BUYUK_OLCEK;
+}
+
+const ucgenSayisi = (g) => g.index.count / 3;
+
 // Sade çam: binlerce kez çizildiği için olabildiğince az yüzlü, Minecraft ladini gibi
 // basamaklı bir koni: gövde, 5x5, iki kat 3x3 ve tepede tek blok
 function sadeCamGeometrisi(hedefBoy) {
@@ -182,13 +232,14 @@ function sadeCamGeometrisi(hedefBoy) {
 
 // ---------------- Yerleştirme ----------------
 
-// Süslü ağaçlar: yürüme yolunun 1-2 blok yanındaki çim, binalardan en az 3 blok uzakta,
-// birbirinden en az 10 blok aralıklı
-function susluAgacYerleri(zeminIzgarasi, binaIzgarasi) {
+// Süslü ağaçlar: tabanı (yarı genişliği yaricap blok olan kare) tamamen çimde, kenarı yürüme
+// yoluna en fazla 2 blok uzakta, binalara ve orman çamlarına değmeden; tabanlar birbirine girmez
+function susluAgacYerleri(zeminIzgarasi, binaIzgarasi, yaricap) {
   const { genislik, derinlik, zemin } = zeminIzgarasi;
   const { yukseklik } = binaIzgarasi;
   const rng = rastgeleUretici(1225);
-  const ARALIK = 10;
+  const R = Math.ceil(yaricap - 0.5);        // ağaç hücre ortasında; tabanı i-R..i+R hücrelerine değer
+  const ARALIK = Math.ceil(2 * yaricap) + 1; // merkezler arasında iki eksenden birinde en az bu kadar
   const kova = new Map(); // ARALIK boyutlu hücrelerde, yakın ağaç var mı diye bakmak için
   const yerler = [];
 
@@ -203,7 +254,7 @@ function susluAgacYerleri(zeminIzgarasi, binaIzgarasi) {
 
   // Hücreleri karışık sırayla dene ki ağaçlar haritanın bir köşesinde toplanmasın
   const adaylar = [];
-  for (let j = 2; j < derinlik - 2; j += 2) for (let i = 2; i < genislik - 2; i += 2) adaylar.push(j * genislik + i);
+  for (let j = R; j < derinlik - R; j += 2) for (let i = R; i < genislik - R; i += 2) adaylar.push(j * genislik + i);
   for (let k = adaylar.length - 1; k > 0; k--) {
     const r = Math.floor(rng() * (k + 1));
     [adaylar[k], adaylar[r]] = [adaylar[r], adaylar[k]];
@@ -213,15 +264,17 @@ function susluAgacYerleri(zeminIzgarasi, binaIzgarasi) {
     if (yerler.length >= EN_FAZLA_SUSLU) break;
     const i = h % genislik, j = (h - i) / genislik;
     if (zemin[h] !== ZEMIN.CIM || yukseklik[h]) continue;
-    if (bak(i, j, 1, (q) => zemin[q] !== ZEMIN.CIM)) continue;        // ağaç tam yolun üstüne binmesin
-    if (!bak(i, j, 2, (q) => zemin[q] === ZEMIN.TAS)) continue;        // ama yürüme yoluna yakın olsun
-    if (bak(i, j, 3, (q) => yukseklik[q] > 0)) continue;               // binaya gömülmesin
+    if (bak(i, j, R, (q) => zemin[q] !== ZEMIN.CIM)) continue;        // dalları yola taşmasın
+    if (!bak(i, j, R + 2, (q) => zemin[q] === ZEMIN.TAS)) continue;    // ama yürüme yoluna yakın olsun
+    if (bak(i, j, R + 1, (q) => yukseklik[q] > 0)) continue;           // binaya gömülmesin
+    if (bak(i, j, R + 2, (q) => zemin[q] === ZEMIN.ORMAN)) continue;   // kenardaki çamlar da dallara girer
 
     const ki = Math.floor(i / ARALIK), kj = Math.floor(j / ARALIK);
     let yakin = false;
     for (let b = -1; b <= 1 && !yakin; b++) for (let a = -1; a <= 1 && !yakin; a++) {
       for (const [x, z] of kova.get(`${ki + a},${kj + b}`) || []) {
-        if ((x - i) ** 2 + (z - j) ** 2 < ARALIK * ARALIK) { yakin = true; break; }
+        // Tabanlar eksenlere hizalı kare olduğu için mesafe de kare (Chebyshev) mesafesi
+        if (Math.max(Math.abs(x - i), Math.abs(z - j)) < ARALIK) { yakin = true; break; }
       }
     }
     if (yakin) continue;
@@ -255,28 +308,39 @@ function sadeAgacYerleri(zeminIzgarasi, binaIzgarasi) {
 
 // ---------------- Malzeme ----------------
 
+// DOKULU tanımlıysa (GLB ağacı) renk ve ışık köşe niteliklerinden değil dokudan okunur
 const koseShader = /* glsl */ `
-  in vec3 renk;
-  in float isik;
   uniform float zaman;
-  out vec3 vRenk;
   out vec3 vNormal;
-  out float vIsik;
-  out float vParilti;
   out float vDerinlik;
+  #ifdef DOKULU
+    out vec2 vUv;
+    out vec2 vAgac;
+  #else
+    in vec3 renk;
+    in float isik;
+    out vec3 vRenk;
+    out float vIsik;
+    out float vParilti;
+  #endif
 
   void main() {
     vec4 dunya = modelMatrix * instanceMatrix * vec4(position, 1.0);
     vec4 gorus = viewMatrix * dunya;
-    vRenk = renk;
-    #ifdef USE_INSTANCING_COLOR
-      vRenk *= instanceColor; // sade çamlarda ağaçtan ağaca hafif ton farkı
-    #endif
     vNormal = normal;
-    vIsik = isik;
-    // Her ışık kendi temposunda yanıp söner: ağacın ve bloğun konumundan bir faz
-    float faz = dot(floor(dunya.xyz * 3.0), vec3(1.7, 2.3, 3.1));
-    vParilti = 0.5 + 0.5 * sin(zaman * 3.0 + faz);
+    #ifdef DOKULU
+      vUv = uv;
+      vAgac = instanceMatrix[3].xz;
+    #else
+      vRenk = renk;
+      #ifdef USE_INSTANCING_COLOR
+        vRenk *= instanceColor; // sade çamlarda ağaçtan ağaca hafif ton farkı
+      #endif
+      vIsik = isik;
+      // Her ışık kendi temposunda yanıp söner: ağacın ve bloğun konumundan bir faz
+      float faz = dot(floor(dunya.xyz * 3.0), vec3(1.7, 2.3, 3.1));
+      vParilti = 0.5 + 0.5 * sin(zaman * 3.0 + faz);
+    #endif
     vDerinlik = -gorus.z;
     gl_Position = projectionMatrix * gorus;
   }
@@ -287,20 +351,45 @@ const parcaShader = /* glsl */ `
   uniform vec3 sisRengi;
   uniform float sisYakin;
   uniform float sisUzak;
-  in vec3 vRenk;
   in vec3 vNormal;
-  in float vIsik;
-  in float vParilti;
   in float vDerinlik;
+  #ifdef DOKULU
+    uniform sampler2D doku;
+    uniform float zaman;
+    in vec2 vUv;
+    in vec2 vAgac;
+  #else
+    in vec3 vRenk;
+    in float vIsik;
+    in float vParilti;
+  #endif
   out vec4 renk;
 
   void main() {
     vec3 n = normalize(vNormal);
+    vec3 taban;
+    float isik, parilti;
+    #ifdef DOKULU
+      vec4 t = texture(doku, vUv);
+      if (t.a < 0.05) discard; // modelin kendi alphaCutoff değeri
+      if (!gl_FrontFacing) n = -n; // iki yüzlü çizilir
+      taban = t.rgb;
+      // Sadece parlak sarı pikseller ampuldür; kırmızı süsler ve beyaz kar sabit kalır
+      isik = (t.r > 0.9 && t.g > 0.85 && t.b < 0.75) ? 1.0 : 0.0;
+      // Her ampul kendi temposunda yanıp söner: pikselin dokudaki yerinden ve ağacın konumundan bir faz
+      vec2 piksel = floor(vUv * vec2(textureSize(doku, 0)));
+      float faz = dot(piksel, vec2(1.7, 2.3)) + dot(floor(vAgac), vec2(3.1, 1.3));
+      parilti = 0.5 + 0.5 * sin(zaman * 3.0 + faz);
+    #else
+      taban = vRenk;
+      isik = vIsik;
+      parilti = vParilti;
+    #endif
     float golge = n.y > 0.5 ? 1.0 : (n.y < -0.5 ? 0.55 : (abs(n.x) > 0.5 ? 0.82 : 0.68));
-    vec3 c = vRenk * golge;
+    vec3 c = taban * golge;
     // Işıklar gölgeden etkilenmez; sönükken bile biraz parlar
-    c = mix(c, vRenk * (0.45 + 0.75 * vParilti), vIsik);
-    float sis = smoothstep(sisYakin, sisUzak, vDerinlik) * (1.0 - 0.6 * vIsik);
+    c = mix(c, taban * (0.45 + 0.75 * parilti), isik);
+    float sis = smoothstep(sisYakin, sisUzak, vDerinlik) * (1.0 - 0.6 * isik);
     renk = vec4(mix(c, sisRengi, sis), 1.0);
   }
 `;
@@ -316,6 +405,19 @@ function agacMalzemesi(gokRengi) {
       sisYakin: { value: 350 },
       sisUzak: { value: 1100 }
     }
+  });
+}
+
+// GLB ağacı için dokulu, iki yüzlü sürüm. Tekdüzen (uniform) nesneleri ortak, böylece zaman
+// yalnızca asıl malzemede güncellenir
+function dokuluAgacMalzemesi(malzeme, doku) {
+  return new THREE.ShaderMaterial({
+    glslVersion: THREE.GLSL3,
+    vertexShader: koseShader,
+    fragmentShader: parcaShader,
+    defines: { DOKULU: '' },
+    side: THREE.DoubleSide,
+    uniforms: { ...malzeme.uniforms, doku: { value: doku } }
   });
 }
 
@@ -335,7 +437,7 @@ function orman(geometri, malzeme, yerler, rng, renkFarki) {
     liste.forEach((y, k) => {
       // Her ağaç 90°'nin katları kadar döner ve boyu biraz değişir: orman tekdüze görünmesin
       q.setFromAxisAngle(yukari, Math.floor(rng() * 4) * Math.PI / 2);
-      const o = 0.85 + rng() * 0.3;
+      const o = 0.85 + rng() * (EN_BUYUK_OLCEK - 0.85);
       m.compose(p.set(y.x, 0, y.z), q, s.set(o, o, o));
       mesh.setMatrixAt(k, m);
       if (renkFarki) mesh.setColorAt(k, c.setScalar(0.85 + rng() * 0.25));
@@ -356,24 +458,35 @@ export async function agaclariOlustur(zeminIzgarasi, binaIzgarasi, gokRengi) {
   const sadeYerler = sadeAgacYerleri(zeminIzgarasi, binaIzgarasi);
   const sadeGeometri = sadeCamGeometrisi(SADE_AGAC_BOYU);
   grup.add(orman(sadeGeometri, malzeme, sadeYerler, rng, true));
-  let toplamDortgen = sadeYerler.length * sadeGeometri.index.count / 6;
+  let toplamUcgen = sadeYerler.length * ucgenSayisi(sadeGeometri);
 
-  let susluSayisi = 0;
+  // Süslü ağaç: önce GLB, olmazsa .vox
+  let suslu = null;
   try {
-    const yanit = await fetch('modeller/yilbasi-agaci.vox');
-    if (!yanit.ok) throw new Error(`HTTP ${yanit.status}`);
-    const vox = voxOku(await yanit.arrayBuffer());
-    const susluYerler = susluAgacYerleri(zeminIzgarasi, binaIzgarasi);
-    const susluGeometri = voxtanGeometri(vox, SUSLU_AGAC_BOYU);
-    grup.add(orman(susluGeometri, malzeme, susluYerler, rng, false));
-    susluSayisi = susluYerler.length;
-    toplamDortgen += susluSayisi * susluGeometri.index.count / 6;
+    const { geometri, doku } = await glbdenGeometri('modeller/yilbasi-agaci.glb', SUSLU_AGAC_BOYU);
+    suslu = { geometri, malzeme: dokuluAgacMalzemesi(malzeme, doku), kaynak: 'GLB' };
   } catch (hata) {
-    // Model okunamazsa harita yine açılsın, sadece süslü ağaçlar eksik kalsın
-    console.warn('Yılbaşı ağacı modeli yüklenemedi:', hata);
+    console.warn('GLB yılbaşı ağacı yüklenemedi, .vox modeli kullanılacak:', hata);
+    try {
+      const yanit = await fetch('modeller/yilbasi-agaci.vox');
+      if (!yanit.ok) throw new Error(`HTTP ${yanit.status}`);
+      const vox = voxOku(await yanit.arrayBuffer());
+      suslu = { geometri: voxtanGeometri(vox, SUSLU_AGAC_BOYU), malzeme, kaynak: '.vox' };
+    } catch (hata) {
+      // Model okunamazsa harita yine açılsın, sadece süslü ağaçlar eksik kalsın
+      console.warn('Yılbaşı ağacı modeli yüklenemedi:', hata);
+    }
   }
 
-  console.info(`Ağaçlar: ${sadeYerler.length} çam (${sadeGeometri.index.count / 6} dörtgen/ağaç), ${susluSayisi} süslü yılbaşı ağacı, toplam ${toplamDortgen} dörtgen`);
+  let susluBilgi = 'süslü yılbaşı ağacı yok';
+  if (suslu) {
+    const susluYerler = susluAgacYerleri(zeminIzgarasi, binaIzgarasi, tabanYaricapi(suslu.geometri));
+    grup.add(orman(suslu.geometri, suslu.malzeme, susluYerler, rng, false));
+    toplamUcgen += susluYerler.length * ucgenSayisi(suslu.geometri);
+    susluBilgi = `${susluYerler.length}/${EN_FAZLA_SUSLU} süslü yılbaşı ağacı (${suslu.kaynak}, ${ucgenSayisi(suslu.geometri)} üçgen/ağaç)`;
+  }
+
+  console.info(`Ağaçlar: ${sadeYerler.length} çam (${ucgenSayisi(sadeGeometri)} üçgen/ağaç), ${susluBilgi}, toplam ${toplamUcgen} üçgen`);
   grup.userData.guncelle = (saniye) => { malzeme.uniforms.zaman.value = saniye; };
   return grup;
 }

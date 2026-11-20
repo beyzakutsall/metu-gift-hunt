@@ -33,7 +33,7 @@ canvas {
   display: none;
 }
 
-/* OSM atfı: sağ alt köşe */
+/* OSM ve ağaç modeli atfı: sağ alt köşe */
 #atif {
   position: absolute;
   right: 0;
@@ -42,5 +42,9 @@ canvas {
   background: rgba(255, 255, 255, 0.8);
   color: #333;
   font-size: 12px;
+}
+
+#atif a {
+  color: inherit;
   text-decoration: none;
 }
