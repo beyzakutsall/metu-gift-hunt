@@ -10,7 +10,7 @@ Kullanım sınırı 17:10 civarında doldu. A, B, C ve birleştirme tamamlandı;
 | `harita-detay` (A) | Bitti, push edildi |
 | `oyun-sunucu` (B) | Bitti, push edildi (SQL çalıştırılmadı) |
 | `oyun-arayuz` (C) | Bitti, push edildi |
-| `entegrasyon` | `main`'den açıldı; A → B → C birleştirildi (`cf74077`). Tek çakışma README'deydi, iki bölüm de korundu. Birleşik hâlde `node --test "tests/*.test.mjs"` 22/22 geçti. Haritada tarayıcı testi yapılmadı. |
+| `entegrasyon` | `main`'den açıldı; A → B → C birleştirildi (`cf74077`). Tek çakışma README'deydi, iki bölüm de korundu. Birleşik hâlde `node --test "tests/*.test.mjs"` 22/22 geçti. 20:31'de tarayıcıda kontrol edildi: `minecraft.html` ve `oyun.html?sahte=1` konsol hatası olmadan açılıyor; tabela, etiket, nesne ve ağaç sayıları A'nın raporuyla aynı. |
 
 `gh` kurulu olmadığı için hiç PR açılmadı. `main`'e dokunulmadı.
 
