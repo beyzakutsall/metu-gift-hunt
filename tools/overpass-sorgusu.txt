@@ -1,4 +1,4 @@
-[out:json][timeout:120][bbox:39.880,32.760,39.903,32.800];
+[out:json][timeout:180][bbox:39.880,32.760,39.903,32.800];
 (
   way["building"];
   relation["building"];
@@ -10,5 +10,16 @@
   way["leisure"~"^(park|pitch|garden|stadium|track)$"];
   way["amenity"="parking"];
   way["waterway"];
+  node["amenity"~"^(bench|waste_basket|drinking_water|bicycle_parking|cafe|fast_food|restaurant)$"];
+  node["highway"="street_lamp"];
+  node["leisure"="picnic_table"];
+  node["tourism"="artwork"];
+  node["historic"];
+  node["entrance"];
+  way["amenity"~"^(cafe|fast_food|restaurant)$"];
+  way["tourism"="artwork"];
+  way["historic"];
+  way["name"]["place"];
+  way["name"]["leisure"];
 );
 out body geom;
