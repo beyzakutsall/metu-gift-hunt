@@ -2,8 +2,9 @@
 import * as THREE from 'three';
 import { enlemBoylamdanBloga } from './projeksiyon.js';
 import { zeminIzgarasiOlustur } from './dunya.js';
-import { zeminDokulariniOlustur } from './dokular.js';
+import { zeminDokulariniOlustur, binaDokulariniOlustur } from './dokular.js';
 import { zeminOlustur } from './zemin.js';
+import { binaIzgarasiOlustur, binalariOlustur } from './binalar.js';
 import { kameraKontrolleriniKur } from './kamera.js';
 
 const GOK_RENGI = 0x8ec8ff;
@@ -26,9 +27,14 @@ async function baslat() {
   if (!yanit.ok) throw new Error(`data/campus.json okunamadı (HTTP ${yanit.status})`);
   const osm = await yanit.json();
 
+  const anizotropi = Math.min(8, renderer.capabilities.getMaxAnisotropy());
   const izgara = zeminIzgarasiOlustur(osm);
-  const dokular = zeminDokulariniOlustur(Math.min(8, renderer.capabilities.getMaxAnisotropy()));
-  sahne.add(zeminOlustur(izgara, dokular, GOK_RENGI));
+  sahne.add(zeminOlustur(izgara, zeminDokulariniOlustur(anizotropi), GOK_RENGI));
+
+  const binaIzgarasi = binaIzgarasiOlustur(osm);
+  const binalar = binalariOlustur(binaIzgarasi, binaDokulariniOlustur(anizotropi), GOK_RENGI);
+  sahne.add(binalar);
+  console.info(`Binalar: ${binaIzgarasi.binaSayisi} bina, ${binalar.userData.dortgenSayisi} dörtgen`);
 
   const baslangic = enlemBoylamdanBloga(BASLANGIC.enlem, BASLANGIC.boylam);
   const kontroller = kameraKontrolleriniKur(kamera, renderer.domElement,

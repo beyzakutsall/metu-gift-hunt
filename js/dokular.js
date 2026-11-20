@@ -73,3 +73,74 @@ export function zeminDokulariniOlustur(anizotropi = 1) {
   doku.needsUpdate = true;
   return doku;
 }
+
+// ---- Bina dokuları ----
+// Duvarlarda her blok bir kat yüksekliğinde (≈3 m) ve ortasında bir pencere var.
+// Katman sırası BINA_DOKU değerleriyle aynıdır.
+export const BINA_DOKU = {
+  BETON: 0,       // ODTÜ'nün brüt beton binaları
+  SIVA: 1,        // apartman ve yurtlar: açık renk sıva
+  TUGLA: 2,       // müstakil evler
+  CAM: 3,         // Teknokent ofisleri: cam cephe
+  CATI_DUZ: 4,    // düz çatı: çakıl
+  CATI_KIREMIT: 5 // müstakil ev çatısı: kiremit
+};
+const BINA_DOKU_SAYISI = 6;
+
+const BINA_PALET = {
+  beton: ['#c2bdb2', '#cbc6bb', '#bab5aa', '#c6c1b6', '#bfbaaf'],
+  siva: ['#e3d9c3', '#ddd2bb', '#e8dfca', '#d8cdb5'],
+  tugla: ['#9b4a32', '#a8553a', '#8e432d', '#a14f36'],
+  harc: '#c9bfae',
+  cam: ['#4f7fa6', '#5a8bb3', '#46749a'],
+  pencere: ['#2c4055', '#33495f', '#263a4d'],
+  cerceve: '#e9e7e2',
+  cakil: ['#5f5e5b', '#676662', '#575653', '#6d6c68'],
+  kiremit: ['#a8432c', '#b54c33', '#9c3d28']
+};
+
+// Duvarın ortasındaki pencere: x 4..11, y 3..11 arası; açık renk çerçeve, köşesinde parlama
+function pencereli(duvar) {
+  return (x, y, rng) => {
+    const iceri = x >= 5 && x <= 10 && y >= 4 && y <= 10;
+    const cerceve = x >= 4 && x <= 11 && y >= 3 && y <= 11;
+    if (iceri) return (x === 6 && y === 5) || (x === 7 && y === 5) || (x === 6 && y === 6)
+      ? '#7d97ad' : sec(rng, BINA_PALET.pencere);
+    if (cerceve) return BINA_PALET.cerceve;
+    return duvar(x, y, rng);
+  };
+}
+
+const BINA_CIZICILERI = {
+  // Brüt beton: kalıp izleri gibi 4 pikselde bir hafif yatay çizgi
+  [BINA_DOKU.BETON]: pencereli((x, y, rng) => (y % 4 === 0 && rng() < 0.6) ? '#aaa59a' : sec(rng, BINA_PALET.beton)),
+  [BINA_DOKU.SIVA]: pencereli((x, y, rng) => sec(rng, BINA_PALET.siva)),
+  // Tuğla: 4 piksel yükseklikte sıralar, alt alta kaydırılmış derzler
+  [BINA_DOKU.TUGLA]: pencereli((x, y, rng) => {
+    if (y % 4 === 3) return BINA_PALET.harc;
+    const kayma = (Math.floor(y / 4) % 2) * 4;
+    if ((x + kayma) % 8 === 7) return BINA_PALET.harc;
+    return sec(rng, BINA_PALET.tugla);
+  }),
+  // Cam cephe: her blok 2x2 cam panel, ince açık çerçeveler
+  [BINA_DOKU.CAM]: (x, y, rng) => (x % 8 === 0 || y % 8 === 0) ? '#c9d3dc' : sec(rng, BINA_PALET.cam),
+  [BINA_DOKU.CATI_DUZ]: (x, y, rng) => sec(rng, BINA_PALET.cakil),
+  // Kiremit: 4 piksellik sıralar, her sıranın altı koyu
+  [BINA_DOKU.CATI_KIREMIT]: (x, y, rng) => (y % 4 === 3) ? '#7e3020' : sec(rng, BINA_PALET.kiremit)
+};
+
+export function binaDokulariniOlustur(anizotropi = 1) {
+  const katmanBoyutu = BOYUT * BOYUT * 4;
+  const veri = new Uint8Array(katmanBoyutu * BINA_DOKU_SAYISI);
+  for (let katman = 0; katman < BINA_DOKU_SAYISI; katman++) {
+    veri.set(dokuCiz(2000 + katman, BINA_CIZICILERI[katman]), katman * katmanBoyutu);
+  }
+  const doku = new THREE.DataArrayTexture(veri, BOYUT, BOYUT, BINA_DOKU_SAYISI);
+  doku.wrapS = doku.wrapT = THREE.RepeatWrapping;
+  doku.magFilter = THREE.NearestFilter;
+  doku.minFilter = THREE.LinearMipmapLinearFilter;
+  doku.generateMipmaps = true;
+  doku.anisotropy = anizotropi;
+  doku.needsUpdate = true;
+  return doku;
+}
