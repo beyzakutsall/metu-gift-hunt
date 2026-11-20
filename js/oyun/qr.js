@@ -57,9 +57,11 @@ export function qrOkuyucu(kap, { tur, baslik }) {
   let akis = null, calisiyor = true, coz = null, bitir;
   const sonuc = new Promise((r) => { bitir = r; });
 
-  const video = el('video.oyun-kamera', { playsInline: true, muted: true, autoplay: true });
+  const video = el('video.oyun-kamera', { playsInline: true, muted: true, autoplay: true, hidden: true });
   video.setAttribute('playsinline', '');
-  const durum = el('p.oyun-ipucu', {}, 'Kamera açılıyor…');
+  const durum = el('p.oyun-ipucu', {}, 'Kartı okutmak için kamerayı aç ya da kartın altındaki kodu yaz.');
+  // Kamera izni bir dokunuşla istenir (iOS da bunu bekler)
+  const kameraDugmesi = el('button.birincil', { type: 'button', onclick: kameraAc }, 'Kamerayı aç');
   const elleGirdi = el('input', {
     type: 'text', placeholder: tur === 'hediye' ? 'MGH1:…' : 'MGK1:…', autocomplete: 'off',
     autocapitalize: 'off', spellcheck: false, 'aria-label': 'Kodu elle yaz'
@@ -86,6 +88,7 @@ export function qrOkuyucu(kap, { tur, baslik }) {
       baslik ? el('h3', {}, baslik) : null,
       video,
       durum,
+      kameraDugmesi,
       uyari,
       el('form.oyun-satir', {
         onsubmit: (e) => {
@@ -99,11 +102,14 @@ export function qrOkuyucu(kap, { tur, baslik }) {
       el('button.ikincil', { type: 'button', onclick: () => { durdur(); bitir(null); } }, 'Vazgeç'))
   );
 
-  (async () => {
+  async function kameraAc() {
+    kameraDugmesi.hidden = true;
+    durum.textContent = 'Kamera açılıyor…';
     try {
       if (!navigator.mediaDevices?.getUserMedia) throw new Error('Kamera desteklenmiyor');
       akis = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
       if (!calisiyor) { durdur(); return; }
+      video.hidden = false;
       video.srcObject = akis;
       await video.play().catch(() => {});
       coz = await cozucuOlustur();
@@ -125,7 +131,7 @@ export function qrOkuyucu(kap, { tur, baslik }) {
       video.hidden = true;
       durum.textContent = 'Kamera açılamadı. Kartın altındaki kodu elle yazabilirsin.';
     }
-  })();
+  }
 
   return { sonuc, durdur };
 }
