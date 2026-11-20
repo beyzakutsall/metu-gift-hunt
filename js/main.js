@@ -6,6 +6,11 @@ import { zeminDokulariniOlustur, binaDokulariniOlustur } from './dokular.js';
 import { zeminOlustur } from './zemin.js';
 import { binaIzgarasiOlustur, binalariOlustur } from './binalar.js';
 import { agaclariOlustur } from './agaclar.js';
+import { dolulukOlustur } from './doluluk.js';
+import { binaAdlariniYukle, adliBinalariBul } from './bina-adlari.js';
+import { girisleriBul, tabelaYerleriniSec, tabelalariOlustur } from './tabelalar.js';
+import { etiketleriOlustur } from './etiketler.js';
+import { elleEklenenleriYukle, nesneYerleriniSec, nesneleriOlustur } from './nesneler.js';
 import { kameraKontrolleriniKur } from './kamera.js';
 
 const GOK_RENGI = 0x8ec8ff;
@@ -37,7 +42,21 @@ async function baslat() {
   sahne.add(binalar);
   console.info(`Binalar: ${binaIzgarasi.binaSayisi} bina, ${binalar.userData.dortgenSayisi} dörtgen`);
 
-  const agaclar = await agaclariOlustur(izgara, binaIzgarasi, GOK_RENGI);
+  const doluluk = dolulukOlustur(izgara, binaIzgarasi); // tabela, nesne ve ağaçlar birbirine girmesin
+
+  const adliBinalar = adliBinalariBul(osm, await binaAdlariniYukle(), binaIzgarasi);
+  const tabelalar = tabelalariOlustur(tabelaYerleriniSec(adliBinalar, girisleriBul(osm), izgara, doluluk), GOK_RENGI);
+  sahne.add(tabelalar);
+  const etiketler = etiketleriOlustur(adliBinalar);
+  sahne.add(etiketler);
+  console.info(`Tabelalar: ${tabelalar.userData.tabelaSayisi} tabela (${adliBinalar.length} adlı bina), ${etiketler.userData.etiketSayisi} yüzen etiket`);
+
+  const nesneler = nesneleriOlustur(nesneYerleriniSec(osm, await elleEklenenleriYukle(), izgara, doluluk), GOK_RENGI);
+  sahne.add(nesneler);
+  const nesneSayilari = Object.entries(nesneler.userData.sayilar).map(([tur, n]) => `${n} ${tur}`).join(', ');
+  console.info(`Nesneler: ${nesneSayilari} (toplam ${nesneler.userData.toplamUcgen} üçgen)`);
+
+  const agaclar = await agaclariOlustur(izgara, binaIzgarasi, GOK_RENGI, doluluk);
   sahne.add(agaclar);
 
   const baslangic = enlemBoylamdanBloga(BASLANGIC.enlem, BASLANGIC.boylam);
@@ -54,7 +73,9 @@ async function baslat() {
 
   renderer.setAnimationLoop((zamanMs) => {
     agaclar.userData.guncelle(zamanMs / 1000); // ışıkların yanıp sönmesi
+    nesneler.userData.guncelle(zamanMs / 1000); // lambalar gece yanar
     kontroller.update();
+    etiketler.userData.guncelle(kamera, window.innerWidth, window.innerHeight); // yakında solar, çakışan gizlenir
     renderer.render(sahne, kamera);
   });
 }

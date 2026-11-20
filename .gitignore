@@ -1,0 +1,9 @@
+# Gerçek Supabase ayarları (örneği: js/ayarlar.ornek.js)
+js/ayarlar.js
+
+# Ortam değişkenleri ve gizli bilgiler
+.env
+.env.*
+
+# Geliştirme bağımlılıkları
+node_modules/

@@ -1,0 +1,126 @@
+/* Oyun ekranları: haritadaki yükleme kutusuyla aynı blok görünümü. Her şey .oyun-panel
+   altında, böylece D akışında harita sayfasına eklenince sayfanın geri kalanını etkilemez. */
+.oyun-panel {
+  --oyun-zemin: #4a4d52;
+  --oyun-koyu: #2e3034;
+  --oyun-acik: #62656a;
+  --oyun-yazi: #fff;
+  --oyun-soluk: #c9cbcf;
+  --oyun-vurgu: #5aa83c;
+  --oyun-hata: #ff8a80;
+  --oyun-kar: #bfe3ff;
+  --oyun-gumus: #d6d8dc;
+  --oyun-altin: #ffd54f;
+  box-sizing: border-box;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  color: var(--oyun-yazi);
+  font-family: system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+.oyun-panel *, .oyun-panel *::before, .oyun-panel *::after { box-sizing: inherit; }
+.oyun-panel h2 { margin: 0 0 12px; font-size: 1.3rem; }
+.oyun-panel h3 { margin: 18px 0 8px; font-size: 1.05rem; }
+.oyun-panel p { margin: 6px 0; }
+
+/* Blok kutu */
+.oyun-kutu, .oyun-form, .oyun-kart, .oyun-odul, .oyun-okuyucu {
+  background: var(--oyun-zemin);
+  border: 4px solid var(--oyun-koyu);
+  box-shadow: inset -4px -4px 0 #3a3d41, inset 4px 4px 0 var(--oyun-acik);
+  padding: 14px;
+}
+.oyun-form, .oyun-okuyucu { display: flex; flex-direction: column; gap: 12px; }
+.oyun-kart { margin-bottom: 10px; }
+.oyun-kart[data-seviye=kar] { border-left-color: var(--oyun-kar); }
+.oyun-kart[data-seviye=gumus] { border-left-color: var(--oyun-gumus); }
+.oyun-kart[data-seviye=altin] { border-left-color: var(--oyun-altin); }
+.oyun-kart header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+
+.oyun-panel small, .oyun-ipucu { color: var(--oyun-soluk); font-size: 0.85rem; }
+.oyun-hata { color: var(--oyun-hata); font-size: 0.9rem; min-height: 0; }
+.oyun-hata:empty { display: none; }
+.oyun-uyari { background: #6d4c1f; padding: 8px 10px; border: 2px solid #4a3312; }
+.oyun-not { white-space: pre-wrap; overflow-wrap: anywhere; background: rgba(0, 0, 0, 0.2); padding: 8px; }
+
+/* Form öğeleri */
+.oyun-alan { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+.oyun-alan[hidden] { display: none; }
+.oyun-panel input[type=text], .oyun-panel input[type=number], .oyun-panel textarea, .oyun-panel select {
+  width: 100%;
+  padding: 8px;
+  font: inherit;
+  font-weight: 400;
+  color: #111;
+  background: #f4f4f4;
+  border: 3px solid var(--oyun-koyu);
+  border-radius: 0;
+}
+.oyun-panel input[type=file] { font: inherit; font-weight: 400; color: var(--oyun-soluk); max-width: 100%; }
+.oyun-seviyeler { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.oyun-seviyeler legend { font-weight: 600; margin-bottom: 6px; padding: 0; }
+.oyun-secenek { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.oyun-secenek input { margin-top: 4px; }
+.oyun-secenek span { display: flex; flex-direction: column; }
+
+.oyun-panel button {
+  font: inherit;
+  font-weight: 600;
+  padding: 10px 14px;
+  color: var(--oyun-yazi);
+  background: #6b6e74;
+  border: 3px solid var(--oyun-koyu);
+  box-shadow: inset -3px -3px 0 #55585d, inset 3px 3px 0 #8a8d93;
+  border-radius: 0;
+  cursor: pointer;
+}
+.oyun-panel button.birincil { background: var(--oyun-vurgu); box-shadow: inset -3px -3px 0 #3f7c29, inset 3px 3px 0 #7cc55c; }
+.oyun-panel button:disabled { opacity: 0.55; cursor: default; }
+.oyun-panel button:focus-visible, .oyun-panel input:focus-visible, .oyun-panel textarea:focus-visible {
+  outline: 3px solid var(--oyun-altin);
+  outline-offset: 1px;
+}
+.oyun-satir { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.oyun-satir input[type=text] { flex: 1 1 160px; width: auto; }
+
+/* Sekmeler */
+.oyun-sekmeler { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 12px; }
+.oyun-sekmeler button { flex: 1 1 auto; padding: 8px 6px; }
+.oyun-sekmeler button[aria-selected=true] { background: var(--oyun-vurgu); }
+
+/* QR */
+.oyun-kamera { width: 100%; max-height: 50vh; background: #000; object-fit: cover; }
+.oyun-qr-kart { background: #fff; color: #111; padding: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.oyun-qr { display: block; image-rendering: pixelated; max-width: 100%; height: auto; }
+.oyun-qr-baslik { font-weight: 700; }
+.oyun-qr-not { font-size: 0.8rem; color: #444; }
+.oyun-kod { font-family: ui-monospace, monospace; font-size: 0.8rem; overflow-wrap: anywhere; background: rgba(0, 0, 0, 0.08); padding: 2px 4px; }
+.oyun-kullanim-kodu { font-family: ui-monospace, monospace; font-size: 2rem; font-weight: 700; letter-spacing: 0.2em; text-align: center; color: var(--oyun-altin); }
+.oyun-foto { max-width: 100%; display: block; margin-top: 6px; }
+
+.oyun-saklananlar { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.oyun-saklananlar li { display: flex; justify-content: space-between; gap: 8px; background: rgba(0, 0, 0, 0.2); padding: 6px 8px; flex-wrap: wrap; }
+
+.oyun-tablo { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.oyun-tablo th, .oyun-tablo td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--oyun-acik); }
+
+/* Bildirimler */
+.oyun-bildirimler { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; flex-direction: column; gap: 6px; z-index: 1000; width: min(440px, calc(100% - 32px)); }
+.oyun-bildirim { padding: 10px 14px; background: #2e3034; color: #fff; border: 3px solid #111; font-family: system-ui, sans-serif; font-weight: 600; }
+.oyun-bildirim.hata { background: #8e2b22; }
+
+/* Ödül */
+.oyun-odul { text-align: center; position: relative; z-index: 1; }
+.oyun-konfeti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 2; }
+.oyun-konfeti i { position: absolute; top: -12px; width: 8px; height: 8px; animation-name: oyun-dus; animation-timing-function: linear; animation-fill-mode: forwards; }
+@keyframes oyun-dus { to { transform: translateY(105vh) rotate(540deg); } }
+@media (prefers-reduced-motion: reduce) { .oyun-konfeti { display: none; } }
+
+/* Yazdırırken yalnızca QR kartı */
+@media print {
+  body * { visibility: hidden; }
+  .oyun-qr-kart, .oyun-qr-kart * { visibility: visible; }
+  .oyun-qr-kart { position: absolute; left: 0; top: 0; width: 8cm; }
+}

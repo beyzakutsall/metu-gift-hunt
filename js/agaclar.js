@@ -9,6 +9,7 @@
 import * as THREE from 'three';
 import { ZEMIN } from './dunya.js';
 import { rastgeleUretici } from './rastgele.js';
+import { DOLU } from './doluluk.js';
 
 const PARCA = 128;              // parça boyutu (blok)
 const SUSLU_AGAC_BOYU = 10;     // blok; 1 blok ≈ 3 m
@@ -59,7 +60,7 @@ function isikMi([r, g, b]) {
 // ---------------- Voksel → geometri ----------------
 // Hacmi açgözlü yöntemle (greedy meshing) dörtgenlere çevirir: aynı renkteki bitişik yüzler
 // tek dörtgen olur, iç yüzler hiç çizilmez. Eksenler three.js'e göre: y yukarı.
-function hacimdenGeometri(sx, sy, sz, al, renkBilgisi) {
+export function hacimdenGeometri(sx, sy, sz, al, renkBilgisi) {
   const konum = [], normal = [], renk = [], isik = [], indeks = [];
   const boyut = [sx, sy, sz];
   const p = [0, 0, 0];
@@ -233,8 +234,9 @@ function sadeCamGeometrisi(hedefBoy) {
 // ---------------- Yerleştirme ----------------
 
 // Süslü ağaçlar: tabanı (yarı genişliği yaricap blok olan kare) tamamen çimde, kenarı yürüme
-// yoluna en fazla 2 blok uzakta, binalara ve orman çamlarına değmeden; tabanlar birbirine girmez
-function susluAgacYerleri(zeminIzgarasi, binaIzgarasi, yaricap) {
+// yoluna en fazla 2 blok uzakta, binalara, orman çamlarına, tabelalara ve simge nesnelere değmeden;
+// tabanlar birbirine girmez
+function susluAgacYerleri(zeminIzgarasi, binaIzgarasi, yaricap, doluluk) {
   const { genislik, derinlik, zemin } = zeminIzgarasi;
   const { yukseklik } = binaIzgarasi;
   const rng = rastgeleUretici(1225);
@@ -268,6 +270,7 @@ function susluAgacYerleri(zeminIzgarasi, binaIzgarasi, yaricap) {
     if (!bak(i, j, R + 2, (q) => zemin[q] === ZEMIN.TAS)) continue;    // ama yürüme yoluna yakın olsun
     if (bak(i, j, R + 1, (q) => yukseklik[q] > 0)) continue;           // binaya gömülmesin
     if (bak(i, j, R + 2, (q) => zemin[q] === ZEMIN.ORMAN)) continue;   // kenardaki çamlar da dallara girer
+    if (doluluk && bak(i, j, R, (q) => doluluk.dolu[q] >= DOLU.TABELA)) continue; // tabela ve nesneler
 
     const ki = Math.floor(i / ARALIK), kj = Math.floor(j / ARALIK);
     let yakin = false;
@@ -287,7 +290,7 @@ function susluAgacYerleri(zeminIzgarasi, binaIzgarasi, yaricap) {
 }
 
 // Sade çamlar: orman zemininde, 6 blokluk ızgarada rastgele kaydırılarak, yarı olasılıkla
-function sadeAgacYerleri(zeminIzgarasi, binaIzgarasi) {
+function sadeAgacYerleri(zeminIzgarasi, binaIzgarasi, doluluk) {
   const { genislik, derinlik, zemin } = zeminIzgarasi;
   const { yukseklik } = binaIzgarasi;
   const rng = rastgeleUretici(1903);
@@ -300,6 +303,7 @@ function sadeAgacYerleri(zeminIzgarasi, binaIzgarasi) {
       const z = Math.min(derinlik - 1, j + Math.floor(rng() * ADIM));
       const h = z * genislik + x;
       if (zemin[h] !== ZEMIN.ORMAN || yukseklik[h]) continue;
+      if (doluluk && doluluk.varMi(x, z, 2, (d) => d >= DOLU.TABELA)) continue; // tabela ve nesnelere girmesin
       yerler.push({ x: x + 0.5, z: z + 0.5 });
     }
   }
@@ -450,12 +454,12 @@ function orman(geometri, malzeme, yerler, rng, renkFarki) {
 
 // ---------------- Dışa açılan ----------------
 
-export async function agaclariOlustur(zeminIzgarasi, binaIzgarasi, gokRengi) {
+export async function agaclariOlustur(zeminIzgarasi, binaIzgarasi, gokRengi, doluluk = null) {
   const malzeme = agacMalzemesi(gokRengi);
   const rng = rastgeleUretici(42);
   const grup = new THREE.Group();
 
-  const sadeYerler = sadeAgacYerleri(zeminIzgarasi, binaIzgarasi);
+  const sadeYerler = sadeAgacYerleri(zeminIzgarasi, binaIzgarasi, doluluk);
   const sadeGeometri = sadeCamGeometrisi(SADE_AGAC_BOYU);
   grup.add(orman(sadeGeometri, malzeme, sadeYerler, rng, true));
   let toplamUcgen = sadeYerler.length * ucgenSayisi(sadeGeometri);
@@ -480,7 +484,7 @@ export async function agaclariOlustur(zeminIzgarasi, binaIzgarasi, gokRengi) {
 
   let susluBilgi = 'süslü yılbaşı ağacı yok';
   if (suslu) {
-    const susluYerler = susluAgacYerleri(zeminIzgarasi, binaIzgarasi, tabanYaricapi(suslu.geometri));
+    const susluYerler = susluAgacYerleri(zeminIzgarasi, binaIzgarasi, tabanYaricapi(suslu.geometri), doluluk);
     grup.add(orman(suslu.geometri, suslu.malzeme, susluYerler, rng, false));
     toplamUcgen += susluYerler.length * ucgenSayisi(suslu.geometri);
     susluBilgi = `${susluYerler.length}/${EN_FAZLA_SUSLU} süslü yılbaşı ağacı (${suslu.kaynak}, ${ucgenSayisi(suslu.geometri)} üçgen/ağaç)`;

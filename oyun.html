@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hediye Avı: Deneme</title>
+  <link rel="stylesheet" href="js/oyun/arayuz.css">
+  <style>
+    body { margin: 0; background: #8ec8ff; min-height: 100vh; }
+    .oyun-panel header { margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .oyun-panel header input[type=number] { flex: 1 1 120px; width: auto; padding: 8px; font: inherit; border: 3px solid #2e3034; border-radius: 0; }
+    .oyun-panel header select { flex: 1 1 160px; width: auto; }
+  </style>
+</head>
+<body>
+  <!-- Haritasız deneme sayfası: konum elle girilir. ?sahte=1 ya da js/ayarlar.js yoksa sahte istemci. -->
+  <main id="oyun" class="oyun-panel">
+    <p>Yükleniyor…</p>
+  </main>
+  <script type="module" src="js/oyun/deneme.js"></script>
+</body>
+</html>

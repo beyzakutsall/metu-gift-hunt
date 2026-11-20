@@ -1,0 +1,4 @@
+{
+  "aciklama": "OSM'de olmayan simge nesneler (ör. Bilim Ağacı, Devrim yazısı). Elle düzenlenir; tools/veri-indir.ps1 bu dosyaya dokunmaz. Her öğe: { \"tur\": \"bank|cop|lamba|piknik|cesme|bisiklet|heykel\", \"enlem\": 39.89..., \"boylam\": 32.78..., \"ad\": \"isteğe bağlı açıklama\" }. Konumu bilinmeyen nesne tahminle eklenmez.",
+  "nesneler": []
+}
