@@ -45,3 +45,51 @@ Haritada yürüme yollarının kenarına süslü yılbaşı ağaçları dikilir;
 - GLB dosyasının içindeki bilgide (`asset.extras`) yazar: [UnitedPechoraRecords](https://sketchfab.com/KV4GA)
 
 Bu iki isim birbirini tutmadığı için ikisi de kredilendirilir.
+
+## Oyun sunucusu (Supabase)
+
+Şema, sunucu fonksiyonları ve testler `supabase/` klasöründe. Tablolara doğrudan erişim kapalıdır; oyun yalnızca `security definer` fonksiyonlarla (RPC) çalışır. İstemcinin arayüzü `js/oyun/arayuz.js`'te, gerçek istemci `js/oyun/istemci.js`.
+
+### Kurulum
+
+1. Supabase'te proje açın. Authentication › Sign In / Providers bölümünde **Anonymous sign-ins**'i açın.
+2. SQL Editor'e dosyaları **bu sırayla** yapıştırıp çalıştırın:
+   1. `supabase/semalar/001_tablolar.sql`
+   2. `supabase/semalar/002_fonksiyonlar.sql`
+   3. `supabase/semalar/003_depolama.sql`
+   4. `supabase/semalar/004_yasak_bolgeler.sql`
+3. `supabase/test.sql`'i çalıştırın. Her şey tek transaction içinde çalışır ve geri alınır. Hata yoksa son sorgu `TAMAM: ...` satırlarını listeler. Bir test başarısızsa `TEST BAŞARISIZ: ...` hatasıyla durur; o zaman bir kez `rollback;` çalıştırın.
+4. `js/ayarlar.ornek.js`'i `js/ayarlar.js` adıyla kopyalayın. Project URL ile **publishable** anahtarı (`sb_publishable_...`) yazın. Legacy `anon` anahtarı ve secret anahtar kullanılmaz. `js/ayarlar.js` `.gitignore`'dadır.
+
+Projede "yeni tablolara otomatik API erişimi" kapalı, "yeni tablolarda otomatik RLS" açık olduğu varsayılır. SQL dosyaları yine de bütün `GRANT`/`REVOKE`'ları ve RLS'i açıkça yazar; ayar farklı olsa da sonuç aynıdır.
+
+### Kafe ve görevli ekleme
+
+Panel şifresi düz metin olarak saklanmaz:
+
+```sql
+insert into public.kafeler (ad, osm_id, enlem, boylam, panel_sifresi_ozeti)
+values ('Örnek Kafe', null, 39.8915, 32.7835,
+        extensions.crypt('uzun-bir-panel-sifresi', extensions.gen_salt('bf')));
+```
+
+Görevli `kafe.html`'de kafeyi seçip bu şifreyi girer (`gorevli_ol`). Bir oturum aynı anda tek bir kafenin görevlisi olabilir.
+
+### Demo ayarları
+
+```sql
+update public.oyun_ayarlari set gorunme_gecikmesi_dk = 0;  -- hediyeler hemen görünsün (varsayılan 30)
+update public.oyun_ayarlari set gece_gizle = false;         -- 22:00-07:00 arası da görünsün
+```
+
+### Yasak bölgeler
+
+Saklama kampüs sınırı dışında ve `public.yasak_bolgeler`'deki dikdörtgenlerde reddedilir. `004_yasak_bolgeler.sql`, `data/campus.json`'daki konut alanları (`landuse=residential`) ile `house`, `apartments`, `residential`, `detached` ve `dormitory` binalarının 5 m paylı sınır kutularından üretilir. Kutular kabadır: L biçimli bir alanın kutusu yanındaki boşluğu da kapsayabilir. Ormanlık alanlar sunucuda kontrol edilmez, istemci kontrol eder.
+
+- **Veri değişince yeniden üretmek için:** `python supabase/yasak-bolgeler-uret.py data/campus.json > supabase/semalar/004_yasak_bolgeler.sql`, ardından dosyayı yeniden yapıştırın (önce tabloyu boşaltır).
+- **Elle bölge eklemek için:** `insert into public.yasak_bolgeler (ad, guney, bati, kuzey, dogu) values ('Açıklama', 39.88, 32.78, 39.881, 32.781);`. Elle eklenenler yeniden üretimde silinir; kalıcı olmaları için ayrı bir SQL dosyasında tutun.
+
+### Testler
+
+- `node --test tests/istemci.test.mjs`: `js/oyun/istemci.js`'in fonksiyon adlarını, parametrelerini ve hata çevirisini sahte bir Supabase nesnesiyle sınar. Ağ gerekmez.
+- `supabase/test.sql`: Sunucu kuralları (yukarıda). Supabase'te çalıştırılır.
