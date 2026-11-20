@@ -17,6 +17,18 @@ Ardından tarayıcıda http://localhost:8000/minecraft.html adresini açın.
 
 Harita verisi © OpenStreetMap katkıcıları, ODbL lisansıyla. `data/campus.json` dosyasını yenilemek için: `powershell -ExecutionPolicy Bypass -File tools\veri-indir.ps1`
 
+## Harita detayı: tabelalar, etiketler, simge nesneler
+
+- **Tabelalar** (`js/tabelalar.js`): Adı olan her binanın önünde ahşap bir tabela durur ve binanın kısa adı piksel yazıyla okunur. Tabela, binanın OSM giriş düğümü varsa onun önüne, yoksa en yakın yürüme yoluna bakan kenarına konur. Binalara, yollara, ağaçlara ve nesnelere girmez. Yakınında aynı adlı tabela olan binalar (ör. Konukevi) tekrar tabela almaz.
+- **Yüzen etiketler** (`js/etiketler.js`): Önemli ve büyük binaların adı uzaktan binanın üstünde görünür. Kamera yaklaşınca solup kaybolur; o mesafede tabelalar okunur. Üst üste binen etiketlerden önceliği düşük olan gizlenir.
+- **Kısa adlar** (`data/bina-adlari.json`): Tabelada ve etikette yazan ad. Anahtar OSM öğesi (`way/<id>` ya da `relation/<id>`); `"onemli": true` olanlar uzaktan da etiketle görünür. Dosyada olmayan binalarda OSM'deki `short_name`, o da yoksa kısaltılmış `name` kullanılır ("Mühendisliği Bölümü" → "Müh." gibi).
+- **Simge nesneler** (`js/nesneler.js`): Bank, çöp kutusu, piknik masası, bisiklet parkı, heykel/anıt ve bina girişleri OSM'den gelir; hepsi koddan üretilen voksel modeller. OSM'de kampüste sokak lambası olmadığı için **lambalar yürüme yollarının kenarına kendiliğinden dizilir** ve cihaz saatine göre 17:00-07:00 arası yanar.
+- **Elle eklenenler** (`data/elle-eklenen.json`): OSM'de olmayan nesneler (ör. Bilim Ağacı) buraya `tur`, `enlem`, `boylam` ile eklenir; indirme betiği bu dosyaya dokunmaz. Şu an boş.
+- Yerleşim sırası binalar → tabelalar → nesneler → ağaçlar; her adım öncekilerin hücrelerinden kaçınır (`js/doluluk.js`).
+- Tarayıcı konsolu tabela, etiket ve tür başına nesne sayılarını yazar.
+
+Kaynaklar ve lisanslar: [`CREDITS.md`](CREDITS.md). Hazır model adayları: [`docs/MODEL-ADAYLARI.md`](docs/MODEL-ADAYLARI.md).
+
 ## Modeller
 
 Haritada yürüme yollarının kenarına süslü yılbaşı ağaçları dikilir; ormanlık alanlardaki sade çamlar ise koddan (`js/agaclar.js`) üretilir.
