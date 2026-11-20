@@ -93,3 +93,22 @@ Saklama kampüs sınırı dışında ve `public.yasak_bolgeler`'deki dikdörtgen
 
 - `node --test tests/istemci.test.mjs`: `js/oyun/istemci.js`'in fonksiyon adlarını, parametrelerini ve hata çevirisini sahte bir Supabase nesnesiyle sınar. Ağ gerekmez.
 - `supabase/test.sql`: Sunucu kuralları (yukarıda). Supabase'te çalıştırılır.
+
+## Oyun arayüzü (oyun.html, kafe.html)
+
+Hediye saklama, kart okutma, cüzdan ve kafe paneli ekranları. Haritaya bağlanmadan önce iki deneme sayfasında çalışır (yerel sunucuyla, yukarıdaki gibi):
+
+- http://localhost:8000/oyun.html: oyuncu ekranları. Konum elle girilir ya da "GPS'ten al" ile alınır; hazır konumlar arasında Kütüphane önü ve 40/100 m uzağı var.
+- http://localhost:8000/kafe.html: kafe görevlisi paneli (askıda ürün kuponu oluşturma ve kullanma).
+
+**Sahte istemci:** `js/ayarlar.js` yoksa ya da adrese `?sahte=1` eklenirse sayfalar Supabase yerine `js/oyun/sahte-istemci.js` ile çalışır. Kurallar gerçek sunucuyla aynıdır (tek kullanımlık QR, 60 m, 30 m ipucu, günlük sınırlar). Veri tarayıcının localStorage'ında tutulur, böylece `oyun.html` ve `kafe.html` aynı veriyi görür; her sekme ayrı bir oyuncudur. "Başka oyuncu ol" aynı sekmede oyuncu değiştirir, "Sahte veriyi sıfırla" her şeyi siler. Sahte modda deneme kafesi: kimlik `kafe-deneme`, panel şifresi `kafe123`. Sahte modda hediyeler 30 dakika beklemeden görünür.
+
+**Uçtan uca deneme:** Bir sekmede kafe panelinden kupon QR'ı oluştur, diğer sekmede "Sakla › Gümüş" ile o kuponu okut ve sakla, "Başka oyuncu ol" ile ikinci oyuncu olup "Kart okut"ta saklama QR'ını okut, cüzdandaki kullanım kodunu kafe panelinde "Kupon kullan"a yaz. Kamera yoksa QR metni okuyucunun altındaki alana elle yazılabilir.
+
+**QR:** Hediye kartları `MGH1:<32 hex>`, kafe kuponları `MGK1:<32 hex>`; uygulama başka QR'ları (URL'ler dahil) kabul etmez. QR üretmek için `qrcode@1.5.4`, kamerada `BarcodeDetector` yoksa okumak için `jsqr@1.4.0` jsDelivr'dan ilk kullanımda yüklenir. Kamera telefonda yalnızca HTTPS'te açılır.
+
+**Testler:** Sahte istemcinin akış testleri Node ile çalışır:
+
+```
+node --test "tests/*.test.mjs"
+```
