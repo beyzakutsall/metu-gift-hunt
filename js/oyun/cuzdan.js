@@ -66,7 +66,7 @@ export async function cuzdanEkrani(kap, { istemci }) {
       el('small', {}, SAKLANAN_DURUMU[s.durum] || s.durum, s.bulanTakmaAd ? ` · ${s.bulanTakmaAd}` : ''));
   }
 
-  kap.replaceChildren(
+  kap.replaceChildren(el('div.oyun-kutu', {},
     el('h2', {}, 'Cüzdanım'),
     el('h3', {}, 'Bulduklarım'),
     veri.bulduklarim.length
@@ -75,5 +75,5 @@ export async function cuzdanEkrani(kap, { istemci }) {
     el('h3', {}, 'Sakladıklarım'),
     veri.sakladiklarim.length
       ? el('ul.oyun-saklananlar', {}, veri.sakladiklarim.map(saklananSatir))
-      : el('p.oyun-ipucu', {}, 'Henüz hediye saklamadın.'));
+      : el('p.oyun-ipucu', {}, 'Henüz hediye saklamadın.')));
 }

@@ -33,7 +33,7 @@ export async function yakindakilerEkrani(kap, { istemci, konumAl }) {
     ? 'Hediyeler sabah 07:00\'de görünecek.'
     : 'Şu an görebildiğin hediye yok. Hediye saklayarak daha fazlasını açabilirsin.';
 
-  kap.replaceChildren(
+  kap.replaceChildren(el('div.oyun-kutu', {},
     el('h2', {}, 'Yakındaki hediyeler'),
     el('p.oyun-ipucu', {}, `Gösterilen yerler gerçek yerden ${KURALLAR.KAYDIRMA_EN_FAZLA_M} m'ye kadar kayıktır; ipucu ${KURALLAR.IPUCU_MESAFESI_M} m içinde açılır.`),
     liste.length
@@ -54,7 +54,7 @@ export async function yakindakilerEkrani(kap, { istemci, konumAl }) {
           el('header', {}, el('strong', {}, SEVIYE_ADI[h.seviye]), el('small', {}, `yaklaşık ${d} m`)),
           dugme, ipucuKabi);
       }))
-      : el('p.oyun-ipucu', {}, bos));
+      : el('p.oyun-ipucu', {}, bos)));
 }
 
 /**
@@ -68,7 +68,7 @@ export async function yakindakilerEkrani(kap, { istemci, konumAl }) {
 export function okutEkrani(kap, { istemci, konumAl, cuzdanaGit }) {
   const okuyucuKabi = el('div');
   const okuyucu = qrOkuyucu(okuyucuKabi, { tur: 'hediye', baslik: 'Hediye kartını okut' });
-  kap.replaceChildren(el('h2', {}, 'Kart okut'), okuyucuKabi);
+  kap.replaceChildren(okuyucuKabi);
 
   (async () => {
     const qrKodu = await okuyucu.sonuc;
