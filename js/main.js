@@ -5,6 +5,7 @@ import { zeminIzgarasiOlustur } from './dunya.js';
 import { zeminDokulariniOlustur, binaDokulariniOlustur } from './dokular.js';
 import { zeminOlustur } from './zemin.js';
 import { binaIzgarasiOlustur, binalariOlustur } from './binalar.js';
+import { agaclariOlustur } from './agaclar.js';
 import { kameraKontrolleriniKur } from './kamera.js';
 
 const GOK_RENGI = 0x8ec8ff;
@@ -36,6 +37,9 @@ async function baslat() {
   sahne.add(binalar);
   console.info(`Binalar: ${binaIzgarasi.binaSayisi} bina, ${binalar.userData.dortgenSayisi} dörtgen`);
 
+  const agaclar = await agaclariOlustur(izgara, binaIzgarasi, GOK_RENGI);
+  sahne.add(agaclar);
+
   const baslangic = enlemBoylamdanBloga(BASLANGIC.enlem, BASLANGIC.boylam);
   const kontroller = kameraKontrolleriniKur(kamera, renderer.domElement,
     new THREE.Vector3(baslangic.x, 0, baslangic.z));
@@ -48,7 +52,8 @@ async function baslat() {
 
   yukleniyor.hidden = true;
 
-  renderer.setAnimationLoop(() => {
+  renderer.setAnimationLoop((zamanMs) => {
+    agaclar.userData.guncelle(zamanMs / 1000); // ışıkların yanıp sönmesi
     kontroller.update();
     renderer.render(sahne, kamera);
   });
