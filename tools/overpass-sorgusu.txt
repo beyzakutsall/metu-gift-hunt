@@ -1,0 +1,14 @@
+[out:json][timeout:120][bbox:39.880,32.760,39.903,32.800];
+(
+  way["building"];
+  relation["building"];
+  way["highway"];
+  way["landuse"];
+  relation["landuse"];
+  way["natural"~"^(wood|scrub|water)$"];
+  relation["natural"~"^(wood|water)$"];
+  way["leisure"~"^(park|pitch|garden|stadium|track)$"];
+  way["amenity"="parking"];
+  way["waterway"];
+);
+out body geom;

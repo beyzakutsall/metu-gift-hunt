@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ODTÜ Blok Haritası</title>
+  <link rel="stylesheet" href="css/stil.css">
+
+  <!-- Three.js: CDN'den, build aracı olmadan import map ile yüklenir -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Veri işlenirken görünen yükleme ekranı; hata olursa mesaj da burada gösterilir -->
+  <div id="yukleniyor">Kampüs inşa ediliyor…</div>
+
+  <!-- OSM ve ağaç modeli (CC BY 4.0) lisansları gereği atıf -->
+  <div id="atif">
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap katkıcıları</a>
+    ·
+    <a href="https://sketchfab.com/3d-models/minecraft-christmas-tree-free-21010e7da7134d3899e6c0d7d008593a" target="_blank" rel="noopener">Ağaç modeli: CombatCraft Game / UnitedPechoraRecords</a>,
+    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
