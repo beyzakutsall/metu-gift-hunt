@@ -10,6 +10,7 @@ import { BINA_DOKU } from './dokular.js';
 // 1 kat ≈ 3 m = 1 blok
 const KAT_METRE = 3;
 const EN_YUKSEK_KAT = 30;
+const KAT_BLOK = 3; // 1 blok = 1 m; her kat 3 blok
 
 // Yüksekliği bilinmeyen binalar için bina türüne göre tahmini kat sayısı
 const VARSAYILAN_KAT = {
@@ -61,7 +62,7 @@ export function binaIzgarasiOlustur(osm) {
     }
     if (!halkalar || !halkalar.length) continue;
 
-    const kat = Math.min(EN_YUKSEK_KAT, katSayisi(t));
+    const kat = Math.min(EN_YUKSEK_KAT, katSayisi(t)) * KAT_BLOK;
     const m = malzemeSec(t);
     binaSayisi++;
 
@@ -239,7 +240,13 @@ const parcaShader = /* glsl */ `
       // Zemine yakın kısım biraz daha koyu: bloklar yere oturuyormuş gibi görünür
       isik *= 0.86 + 0.14 * clamp(vDunya.y / 1.5, 0.0, 1.0);
     }
-    vec3 c = texture(dokular, vec3(uv, vKatman)).rgb * isik;
+    // 1 m ölçek: her kat 3 blok. Alt sıra döşeme, üstteki iki sıra pencere; üç bloktan biri ayak
+    float katman = vKatman;
+    if (n.y <= 0.5 && vKatman < 2.5) {
+      vec2 hucre = floor(vec2(uv.x + 0.001, vDunya.y - 0.001));
+      if (mod(hucre.y, 3.0) >= 1.0 && mod(hucre.x, 3.0) >= 1.0) katman = 6.0;
+    }
+    vec3 c = texture(dokular, vec3(uv, katman)).rgb * isik;
     c = mix(c, sisRengi, smoothstep(sisYakin, sisUzak, vDerinlik));
     renk = vec4(c, 1.0);
   }
@@ -254,8 +261,8 @@ export function binalariOlustur(izgara, dokular, gokRengi) {
     uniforms: {
       dokular: { value: dokular },
       sisRengi: { value: new THREE.Color(gokRengi).convertLinearToSRGB() },
-      sisYakin: { value: 350 },
-      sisUzak: { value: 1100 }
+      sisYakin: { value: 600 },
+      sisUzak: { value: 2600 }
     }
   });
   const mesh = new THREE.Mesh(geometri, malzeme);

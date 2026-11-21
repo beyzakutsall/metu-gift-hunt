@@ -85,7 +85,7 @@ export const BINA_DOKU = {
   CATI_DUZ: 4,    // düz çatı: çakıl
   CATI_KIREMIT: 5 // müstakil ev çatısı: kiremit
 };
-const BINA_DOKU_SAYISI = 6;
+const BINA_DOKU_SAYISI = 7;
 
 const BINA_PALET = {
   beton: ['#c2bdb2', '#cbc6bb', '#bab5aa', '#c6c1b6', '#bfbaaf'],
@@ -113,10 +113,10 @@ function pencereli(duvar) {
 
 const BINA_CIZICILERI = {
   // Brüt beton: kalıp izleri gibi 4 pikselde bir hafif yatay çizgi
-  [BINA_DOKU.BETON]: pencereli((x, y, rng) => (y % 4 === 0 && rng() < 0.6) ? '#aaa59a' : sec(rng, BINA_PALET.beton)),
-  [BINA_DOKU.SIVA]: pencereli((x, y, rng) => sec(rng, BINA_PALET.siva)),
+  [BINA_DOKU.BETON]: ((x, y, rng) => (y % 4 === 0 && rng() < 0.6) ? '#aaa59a' : sec(rng, BINA_PALET.beton)),
+  [BINA_DOKU.SIVA]: ((x, y, rng) => sec(rng, BINA_PALET.siva)),
   // Tuğla: 4 piksel yükseklikte sıralar, alt alta kaydırılmış derzler
-  [BINA_DOKU.TUGLA]: pencereli((x, y, rng) => {
+  [BINA_DOKU.TUGLA]: ((x, y, rng) => {
     if (y % 4 === 3) return BINA_PALET.harc;
     const kayma = (Math.floor(y / 4) % 2) * 4;
     if ((x + kayma) % 8 === 7) return BINA_PALET.harc;
@@ -126,6 +126,9 @@ const BINA_CIZICILERI = {
   [BINA_DOKU.CAM]: (x, y, rng) => (x % 8 === 0 || y % 8 === 0) ? '#c9d3dc' : sec(rng, BINA_PALET.cam),
   [BINA_DOKU.CATI_DUZ]: (x, y, rng) => sec(rng, BINA_PALET.cakil),
   // Kiremit: 4 piksellik sıralar, her sıranın altı koyu
+  // Pencere bloğu: koyu cam, 1 piksellik açık çerçeve, sol üstte parlama
+  6: (x, y, rng) => (x === 0 || y === 0 || x === 15 || y === 15) ? BINA_PALET.cerceve
+    : ((x + y) >= 3 && (x + y) <= 5) ? '#7d97ad' : sec(rng, BINA_PALET.pencere),
   [BINA_DOKU.CATI_KIREMIT]: (x, y, rng) => (y % 4 === 3) ? '#7e3020' : sec(rng, BINA_PALET.kiremit)
 };
 

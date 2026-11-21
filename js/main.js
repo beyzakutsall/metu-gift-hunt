@@ -27,7 +27,7 @@ async function baslat() {
   const sahne = new THREE.Scene();
   sahne.background = new THREE.Color(GOK_RENGI);
 
-  const kamera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.5, 4000);
+  const kamera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.5, 6000);
 
   const yanit = await fetch('data/campus.json');
   if (!yanit.ok) throw new Error(`data/campus.json okunamadı (HTTP ${yanit.status})`);

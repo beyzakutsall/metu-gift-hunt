@@ -94,8 +94,8 @@ export function zeminOlustur(izgara, dokular, gokRengi) {
       dokular: { value: dokular },
       // Shader renk dönüşümü yapmadığı için sis rengi sRGB olarak verilir
       sisRengi: { value: new THREE.Color(gokRengi).convertLinearToSRGB() },
-      sisYakin: { value: 350 },
-      sisUzak: { value: 1100 }
+      sisYakin: { value: 600 },
+      sisUzak: { value: 2600 }
     }
   });
 
