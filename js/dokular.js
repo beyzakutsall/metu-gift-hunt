@@ -85,7 +85,7 @@ export const BINA_DOKU = {
   CATI_DUZ: 4,    // düz çatı: çakıl
   CATI_KIREMIT: 5 // müstakil ev çatısı: kiremit
 };
-const BINA_DOKU_SAYISI = 7;
+const BINA_DOKU_SAYISI = 8;
 
 const BINA_PALET = {
   beton: ['#c2bdb2', '#cbc6bb', '#bab5aa', '#c6c1b6', '#bfbaaf'],
@@ -127,8 +127,8 @@ const BINA_CIZICILERI = {
   [BINA_DOKU.CATI_DUZ]: (x, y, rng) => sec(rng, BINA_PALET.cakil),
   // Kiremit: 4 piksellik sıralar, her sıranın altı koyu
   // Pencere bloğu: koyu cam, 1 piksellik açık çerçeve, sol üstte parlama
-  6: (x, y, rng) => (x === 0 || y === 0 || x === 15 || y === 15) ? BINA_PALET.cerceve
-    : ((x + y) >= 3 && (x + y) <= 5) ? '#7d97ad' : sec(rng, BINA_PALET.pencere),
+  6: (x, y, rng) => sec(rng, BINA_PALET.pencere),
+  7: (x, y, rng) => (rng() < 0.15) ? '#d8d5cf' : BINA_PALET.cerceve,
   [BINA_DOKU.CATI_KIREMIT]: (x, y, rng) => (y % 4 === 3) ? '#7e3020' : sec(rng, BINA_PALET.kiremit)
 };
 

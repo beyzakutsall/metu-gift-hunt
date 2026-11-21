@@ -9,8 +9,8 @@ import { BINA_DOKU } from './dokular.js';
 
 // 1 kat ≈ 3 m = 1 blok
 const KAT_METRE = 3;
-const EN_YUKSEK_KAT = 30;
-const KAT_BLOK = 3; // 1 blok = 1 m; her kat 3 blok
+const EN_YUKSEK_KAT = 21; // 21 kat x 12 blok, yükseklik dizisi Uint8 (en fazla 255)
+const KAT_BLOK = 12; // 1 m = 4 blok; her kat 12 blok
 
 // Yüksekliği bilinmeyen binalar için bina türüne göre tahmini kat sayısı
 const VARSAYILAN_KAT = {
@@ -240,11 +240,15 @@ const parcaShader = /* glsl */ `
       // Zemine yakın kısım biraz daha koyu: bloklar yere oturuyormuş gibi görünür
       isik *= 0.86 + 0.14 * clamp(vDunya.y / 1.5, 0.0, 1.0);
     }
-    // 1 m ölçek: her kat 3 blok. Alt sıra döşeme, üstteki iki sıra pencere; üç bloktan biri ayak
+    // 1 m = 4 blok: her kat 12 blok. Kat başına 3 sıra döşeme, 7 sıra pencere, 2 sıra lento;
+    // 12 blokluk aralıkta 8 blok pencere, 4 blok ayak
     float katman = vKatman;
     if (n.y <= 0.5 && vKatman < 2.5) {
       vec2 hucre = floor(vec2(uv.x + 0.001, vDunya.y - 0.001));
-      if (mod(hucre.y, 3.0) >= 1.0 && mod(hucre.x, 3.0) >= 1.0) katman = 6.0;
+      float s = mod(hucre.y, 12.0), k = mod(hucre.x, 12.0);
+      if (s >= 3.0 && s < 10.0 && k >= 2.0 && k < 10.0) katman = 6.0;
+      // Pencere kenarındaki tek sıra blok açık renk çerçeve
+      if (katman == 6.0 && (s == 3.0 || s == 9.0 || k == 2.0 || k == 9.0)) katman = 7.0;
     }
     vec3 c = texture(dokular, vec3(uv, katman)).rgb * isik;
     c = mix(c, sisRengi, smoothstep(sisYakin, sisUzak, vDerinlik));
@@ -261,8 +265,8 @@ export function binalariOlustur(izgara, dokular, gokRengi) {
     uniforms: {
       dokular: { value: dokular },
       sisRengi: { value: new THREE.Color(gokRengi).convertLinearToSRGB() },
-      sisYakin: { value: 600 },
-      sisUzak: { value: 2600 }
+      sisYakin: { value: 2400 },
+      sisUzak: { value: 10400 }
     }
   });
   const mesh = new THREE.Mesh(geometri, malzeme);

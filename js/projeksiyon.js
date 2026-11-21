@@ -2,8 +2,9 @@
 // Dünya birimi 1 bloktur (≈3 m). (0, 0) kampüs sınırının kuzeybatı köşesidir;
 // x doğuya, z güneye doğru artar, y yukarıdır.
 
-export const SINIR = { bati: 32.760, guney: 39.880, dogu: 32.800, kuzey: 39.903 };
-export const BLOK_METRE = 1;
+// Deneme: 1 m = 4 blok olduğu için sadece Kütüphane-MM çevresi (yaklaşık 600 x 500 m)
+export const SINIR = { bati: 32.7790, guney: 39.8890, dogu: 32.7860, kuzey: 39.8935 };
+export const BLOK_METRE = 0.25;
 
 // Bu küçük alanda düz (eşdikdörtgen) projeksiyon yeterli; ölçekler merkez enleme göre
 const merkezEnlem = ((SINIR.guney + SINIR.kuzey) / 2) * Math.PI / 180;

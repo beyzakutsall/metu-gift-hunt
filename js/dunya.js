@@ -41,23 +41,23 @@ function alanZemini(t) {
 
 // Çizgi olarak çizilen öğeler: genişlik blok cinsinden, sira küçükten büyüğe çizilir (büyük üstte kalır)
 function cizgiBilgisi(t) {
-  if (t.waterway) return { genislik: 3, zemin: ZEMIN.SU, sira: 0 };
-  if (t.leisure === 'track' && t.area !== 'yes') return { genislik: 7, zemin: ZEMIN.PIST, sira: 1 };
+  if (t.waterway) return { genislik: 12, zemin: ZEMIN.SU, sira: 0 };
+  if (t.leisure === 'track' && t.area !== 'yes') return { genislik: 28, zemin: ZEMIN.PIST, sira: 1 };
   if (!t.highway || t.area === 'yes') return null;
 
   const toprakMi = TOPRAK_YUZEYLER.has(t.surface);
   switch (t.highway) {
     case 'track':
-      return { genislik: 2, zemin: ZEMIN.TOPRAK, sira: 1 };
+      return { genislik: 8, zemin: ZEMIN.TOPRAK, sira: 1 };
     case 'footway': case 'path': case 'pedestrian': case 'steps': case 'cycleway': case 'bridleway':
-      return { genislik: 3, zemin: toprakMi ? ZEMIN.TOPRAK : ZEMIN.TAS, sira: 2 };
+      return { genislik: 12, zemin: toprakMi ? ZEMIN.TOPRAK : ZEMIN.TAS, sira: 2 };
     case 'service': case 'residential': case 'unclassified': case 'living_street':
     case 'primary_link': case 'secondary_link': case 'tertiary_link': case 'trunk_link':
-      return { genislik: 5, zemin: toprakMi ? ZEMIN.TOPRAK : ZEMIN.ASFALT, sira: 3 };
+      return { genislik: 20, zemin: toprakMi ? ZEMIN.TOPRAK : ZEMIN.ASFALT, sira: 3 };
     case 'secondary': case 'tertiary':
-      return { genislik: 7, zemin: ZEMIN.ASFALT, sira: 4 };
+      return { genislik: 28, zemin: ZEMIN.ASFALT, sira: 4 };
     case 'primary': case 'trunk':
-      return { genislik: 9, zemin: ZEMIN.ASFALT, sira: 5 };
+      return { genislik: 36, zemin: ZEMIN.ASFALT, sira: 5 };
     default:
       return null; // construction, proposed vb.
   }

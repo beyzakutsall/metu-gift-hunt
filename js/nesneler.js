@@ -11,8 +11,8 @@ import { hacimdenGeometri } from './agaclar.js';
 import { rastgeleUretici } from './rastgele.js';
 
 const PARCA = 128;
-const VOKSEL = 3 / 8;       // blok; nesneler bir bloktan küçük olduğu için ince voksel
-const LAMBA_ARALIGI = 25;    // blok; kendiliğinden dizilen lambalar arası en az mesafe
+const VOKSEL = 3 / 2;       // blok; nesneler bir bloktan küçük olduğu için ince voksel
+const LAMBA_ARALIGI = 100;    // blok; kendiliğinden dizilen lambalar arası en az mesafe
 const EN_FAZLA_LAMBA = 2500;
 
 // ---------------- Modeller ----------------
@@ -285,8 +285,8 @@ export function nesneleriOlustur(yerler, gokRengi) {
     uniforms: {
       gece: { value: geceMi() ? 1 : 0 },
       sisRengi: { value: new THREE.Color(gokRengi).convertLinearToSRGB() },
-      sisYakin: { value: 600 },
-      sisUzak: { value: 2600 }
+      sisYakin: { value: 2400 },
+      sisUzak: { value: 10400 }
     }
   });
   const grup = new THREE.Group();
