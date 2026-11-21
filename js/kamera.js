@@ -4,15 +4,15 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { IZGARA } from './projeksiyon.js';
 
 export function kameraKontrolleriniKur(kamera, tuval, hedef) {
-  kamera.position.set(hedef.x, hedef.y + 180, hedef.z + 220);
+  kamera.position.set(hedef.x, hedef.y + 360, hedef.z + 440);
 
   const kontroller = new OrbitControls(kamera, tuval);
   kontroller.target.copy(hedef);
   kontroller.enableDamping = true;
   kontroller.dampingFactor = 0.08;
   kontroller.screenSpacePanning = false; // kaydırma yere paralel olsun
-  kontroller.minDistance = 12;
-  kontroller.maxDistance = 1800;
+  kontroller.minDistance = 24;
+  kontroller.maxDistance = 3600;
   kontroller.minPolarAngle = 0.1;        // tam tepeden bakışa yakın
   kontroller.maxPolarAngle = 1.3;        // ufka inmesin (≈75°)
 

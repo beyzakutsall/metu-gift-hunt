@@ -12,8 +12,8 @@ import { rastgeleUretici } from './rastgele.js';
 import { DOLU } from './doluluk.js';
 
 const PARCA = 128;              // parça boyutu (blok)
-const SUSLU_AGAC_BOYU = 16;     // blok; 1 blok ≈ 3 m
-const SADE_AGAC_BOYU = 12;
+const SUSLU_AGAC_BOYU = 32;     // blok; 1 blok ≈ 3 m
+const SADE_AGAC_BOYU = 24;
 const EN_FAZLA_SUSLU = 400;
 const EN_BUYUK_OLCEK = 1.15;    // orman() her ağacın boyunu 0.85 ile bu değer arasında değiştirir
 
@@ -294,7 +294,7 @@ function sadeAgacYerleri(zeminIzgarasi, binaIzgarasi, doluluk) {
   const { genislik, derinlik, zemin } = zeminIzgarasi;
   const { yukseklik } = binaIzgarasi;
   const rng = rastgeleUretici(1903);
-  const ADIM = 12;
+  const ADIM = 24;
   const yerler = [];
   for (let j = 0; j < derinlik; j += ADIM) {
     for (let i = 0; i < genislik; i += ADIM) {
@@ -406,8 +406,8 @@ function agacMalzemesi(gokRengi) {
     uniforms: {
       zaman: { value: 0 },
       sisRengi: { value: new THREE.Color(gokRengi).convertLinearToSRGB() },
-      sisYakin: { value: 600 },
-      sisUzak: { value: 2600 }
+      sisYakin: { value: 1200 },
+      sisUzak: { value: 5200 }
     }
   });
 }

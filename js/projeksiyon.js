@@ -3,7 +3,7 @@
 // x doğuya, z güneye doğru artar, y yukarıdır.
 
 export const SINIR = { bati: 32.760, guney: 39.880, dogu: 32.800, kuzey: 39.903 };
-export const BLOK_METRE = 1;
+export const BLOK_METRE = 0.5;
 
 // Bu küçük alanda düz (eşdikdörtgen) projeksiyon yeterli; ölçekler merkez enleme göre
 const merkezEnlem = ((SINIR.guney + SINIR.kuzey) / 2) * Math.PI / 180;

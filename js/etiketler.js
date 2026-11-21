@@ -5,12 +5,12 @@
 import * as THREE from 'three';
 import { pikselYaziCiz, pikselDokusu } from './piksel-yazi.js';
 
-const BUYUK_BINA_ALANI = 6300; // blok²; önemli işaretli olmasa da bundan büyük binalar etiketlenir
+const BUYUK_BINA_ALANI = 25200; // blok²; önemli işaretli olmasa da bundan büyük binalar etiketlenir
 const PUNTO = 12;
 const YUKSEKLIK_PX = 18;      // etiket tuvalinin yüksekliği
 const EKRAN_OLCEGI = 1.5;     // tuval pikseli başına ekran pikseli
-const SOLMA_YAKIN = 140;       // blok; bundan yakında etiket görünmez
-const SOLMA_UZAK = 260;        // bundan uzakta tam görünür
+const SOLMA_YAKIN = 280;       // blok; bundan yakında etiket görünmez
+const SOLMA_UZAK = 520;        // bundan uzakta tam görünür
 
 function etiketTuvali(ad) {
   const olcum = document.createElement('canvas').getContext('2d');
@@ -41,7 +41,7 @@ export function etiketleriOlustur(binalar) {
       const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
         map: pikselDokusu(tuval), transparent: true, depthTest: false, sizeAttenuation: false
       }));
-      sprite.position.set(b.merkez.x, b.yukseklik + 5, b.merkez.z);
+      sprite.position.set(b.merkez.x, b.yukseklik + 10, b.merkez.z);
       sprite.renderOrder = 10; // binaların üstünde çizilsin
       grup.add(sprite);
       return { sprite, genislik: tuval.width * EKRAN_OLCEGI, yukseklik: tuval.height * EKRAN_OLCEGI };

@@ -10,12 +10,12 @@ import { DOLU } from './doluluk.js';
 import { rastgeleUretici } from './rastgele.js';
 import { pikselYaziCiz, pikselDokusu } from './piksel-yazi.js';
 
-const PANO_GENISLIK = 5;     // blok
-const PANO_YUKSEKLIK = 2;
-const PANO_KALINLIK = 0.25;
-const DIREK_BOYU = 1.6;      // panonun alt kenarı bu yükseklikte
-const DIREK_KALINLIK = 0.35;
-const AYNI_AD_MESAFESI = 25; // aynı adlı binalar (Konukevi gibi) bu kadar yakınsa tek tabela
+const PANO_GENISLIK = 10;     // blok
+const PANO_YUKSEKLIK = 4;
+const PANO_KALINLIK = 0.5;
+const DIREK_BOYU = 3.2;      // panonun alt kenarı bu yükseklikte
+const DIREK_KALINLIK = 0.7;
+const AYNI_AD_MESAFESI = 50; // aynı adlı binalar (Konukevi gibi) bu kadar yakınsa tek tabela
 
 // Dört yön: tabelanın baktığı taraf (bina arkada kalır)
 const YONLER = [[1, 0], [-1, 0], [0, 1], [0, -1]];
@@ -258,8 +258,8 @@ export function tabelalariOlustur(yerler, gokRengi) {
     uniforms: {
       atlas: { value: pikselDokusu(tuval) },
       sisRengi: { value: new THREE.Color(gokRengi).convertLinearToSRGB() },
-      sisYakin: { value: 600 },
-      sisUzak: { value: 2600 }
+      sisYakin: { value: 1200 },
+      sisUzak: { value: 5200 }
     }
   });
   const mesh = new THREE.Mesh(g, malzeme);
